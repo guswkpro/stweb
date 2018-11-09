@@ -35,5 +35,6 @@ var app = http.createServer(function (request, response) {
           }
         }
         else if(pathname === '/login'){
-            index.
         }
+        
+    });
