@@ -3,7 +3,7 @@ var app = express();
 var server = app.listen(3516, function(){
 	console.log("Express server has started on port 3516")
 })
-app.set('views', __dirname + '/view');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
@@ -21,12 +21,7 @@ app.post('/LoginForm',function(req, res){
     var password = body.password;
     var nickname = body.nickname;
     var email = body.email;
-    
-    var query =connection.query('insert into user(id,password,nickname,email) values("'+id+'","'+password+'","'+nickname'","'+email+'")',function(err,rows)
-    {if (err) { throw err;}
-        console.log("Data inserted");
-    }
-    )
+
 })
 
 module.exports=router;
