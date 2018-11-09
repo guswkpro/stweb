@@ -6,7 +6,7 @@ var db = mysql.createConnection({
     database : 'suyeon'
   });
     db.connect();
-    module.exports = db;
+
 
 exports.login = function(req, res){
     var id = req.body.l_id;
@@ -27,3 +27,4 @@ exports.login = function(req, res){
         }
     });
 }
+module.exports = db;
