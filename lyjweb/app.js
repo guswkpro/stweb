@@ -16,7 +16,7 @@ app.get('/',function(req,res){
     res.render('hello world');
 });
 app.get('/LoginForm', function(req, res){
-	res.render('views/user/LoginForm.html');s
+	res.render('views/user/LoginForm.html');
 });
 app.get('/userprogile',function(res,req){
     res.render('views/user/user.html')
