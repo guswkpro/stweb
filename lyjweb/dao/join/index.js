@@ -5,18 +5,11 @@ var path = require('path')
 var mysql = require('mysql')
 
 var connection mysql.createConnection({
-    host : '13.58.230.106',
+    host : 'calivan.ctk1nynf5quj.us-east-2.rds.amazonaws.com',
     port : 3006,
     user : 'calivan',
     password : 'youngjun423!',
     database : 'calivan'
 });
 
-connection.connect();
 
-router.get('/', function(req, res){
-	console.log('get join url')
-	res.sendFile(path.join(__dirname, '../../view/join.html'))
-})
-
-module.exports = router;

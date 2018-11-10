@@ -1,24 +1,15 @@
-var path = require('path')
 var mysql = require('mysql');
-
-var connection mysql.createConnection({
-    host : '13.58.230.106',
+var client mysql.createConnection({
+    host : 'calivan.ctk1nynf5quj.us-east-2.rds.amazonaws.com',
     port : 3006,
     user : 'calivan',
     password : 'youngjun423!',
     database : 'calivan'
 });
 
-connection.connect();
-
-connection.query('select * from Users_Table', function(err, rows, fields) {
-	connection.end();
-	if(!err){
-		console.log('The solution is: ', rows);
-
-	}else{
-		console.log('query error:' + err);
-	}
-});
-
-connection.end()
+export.login = function(id,pw,callback){
+    client.query('SELECT * FROM calivan.users_table where user_id=? AND user_password=?',[id,pw],function(error,result,fields){
+        console.log(result);
+        callback(error,result);
+    });
+};
