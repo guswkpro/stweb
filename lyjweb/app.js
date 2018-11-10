@@ -16,10 +16,10 @@ app.get('/',function(req,res){
     res.render('hello world');
 });
 app.get('/LoginForm', function(req, res){
-	res.render('views/user/LoginForm.html');
+	res.render('views/user/LoginForm.html');s
 });
 app.get('/userprogile',function(res,req){
-    res.render('user.html')
+    res.render('views/user/user.html')
 });
 
 app.post('/LoginForm',function(req, res){
