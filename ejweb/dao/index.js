@@ -2,7 +2,8 @@ var path = require('path')
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-                        host: 'localhost',
+						host: '18.223.175.64',
+						port: 3306,
                         user: 'root',
                         password: '0000',
                         database: 'JungeDBInstance'
