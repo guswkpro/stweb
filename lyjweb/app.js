@@ -10,7 +10,7 @@ app.get('/', function(req, res){
     res.render('./LoginForm.html');
 });
 
-app.get('/Join',function(req,res){
+app.get('/JoinForm.html',function(req,res){
     res.render('./JoinForm.html');
 })
 
