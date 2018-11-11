@@ -15,11 +15,11 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 app.get('/', function(req, res){
-    res.render('index');
+    res.render('./index.html');
 });
 app.get('/login', function(req, res){
-    res.render('login');
+    res.render('./login.html');
 });
 app.get('/signup', function(req, res){
-    res.render('signup');
+    res.render('./signup.html');
 });
