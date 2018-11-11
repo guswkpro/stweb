@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http');
 var bodyParser = require('body-parser')
-
+var logincontroller = require('./controller/logincontroller/index');
 var server = app.listen(3000, function(){
     console.log("Express server has started on port 3000");
 })
@@ -18,7 +18,13 @@ app.get('/', function(req, res){
     res.render('./login.html');
 });
 app.get('/login', function(req, res){
-    res.render('./login.html');
+    var l_id=req.body.id;
+    var l_pw=req.body.pw;
+    logincontroller.login(l_id, l_pw, function(result){
+        res.json({
+            "RESULT":result
+        });
+    });
 });
 app.get('/signup', function(req, res){
     res.render('./signup.html');
