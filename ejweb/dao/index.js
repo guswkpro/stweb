@@ -2,7 +2,7 @@ var path = require('path')
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-						host: '18.223.175.64',
+						host: 'jungedbinstance.colngshlieoc.us-east-2.rds.amazonaws.com',
 						port: 3306,
                         user: 'root',
                         password: '0000',
