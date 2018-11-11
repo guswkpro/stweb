@@ -12,8 +12,8 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-app.get('/',function(req,res){
-    res.render('hello world');
+app.get('/app.js',function(req,res){
+    res.sned('hello world');
 });
 app.get('/LoginForm', function(req, res){
 	res.render('LoginForm.html');
