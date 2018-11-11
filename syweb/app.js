@@ -17,7 +17,7 @@ app.engine('html', require('ejs').renderFile);
 app.get('/', function(req, res){
     res.render('./login.html');
 });
-app.get('/login', function(req, res){
+app.post('/login', function(req, res){
     var l_id=req.body.id;
     var l_pw=req.body.pw;
     logincontroller.login(l_id, l_pw, function(result){
