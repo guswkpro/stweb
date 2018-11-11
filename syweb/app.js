@@ -9,3 +9,6 @@ app.engine('html', require('ejs').renderFile);
 app.get('/', function(req, res){
     res.render('/index.html');
 });
+app.get('/login', function(req, res){
+    
+});
