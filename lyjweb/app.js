@@ -6,5 +6,5 @@ var server = app.listen(3000, function(){
 app.set('views engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.get('/', function(req, res){
-    res.send('hello');
+    res.render("./login.html");
 });
