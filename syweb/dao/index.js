@@ -1,13 +1,12 @@
 var mysql      = require('mysql');
 var db = mysql.createConnection({
-    host     : 'localhost',
+    host     : 'sydb.cwp32sw5gaxo.ap-northeast-2.rds.amazonaws.com',
     user     : 'suyeon',
     password : 'suyeondb',
     database : 'sydb'
   });
     db.connect();
 
-    module.exports = db;
 exports.login = function(req, res){
     var id = req.body.l_id;
     var pw = req.body.l_pw;
