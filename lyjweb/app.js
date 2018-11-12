@@ -2,11 +2,24 @@ var express = require('express');
 var app = express();
 var server = app.listen(3000, function(){
     console.log("Express server has started on port 3000");
-})
+});
+var bodyParser = require('body-parser'); 
+//bodyparser(-->post request를 처리)을 사용하기 위해서
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.set('views engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
+app.set('views', __dirname + '/views');
+
+
 app.get('/', function(req, res){
+    res.send('Hello World');
+});
+
+app.get('/main', function(req, res){
     res.render('./LoginForm.html');
 });
 
