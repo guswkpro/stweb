@@ -5,8 +5,7 @@ var db = mysql.createConnection({
     password : 'suyeondb',
     database : 'sydb'
   });
-    db.connect();
-
+  
 exports.login = function(l_id, l_pw, callback){
 
     db.query(`SELECT count(*) cnt FROM users_table WHERE user_id=? and user_pw=?`, [l_id, l_pw], function(err1, rows){
