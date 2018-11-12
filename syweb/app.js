@@ -20,12 +20,12 @@ app.get('/', function(req, res){
 app.post('/login', function(req, res){
     var l_id=req.body.id;
     var l_pw=req.body.pw;
-    logincontroller.login(l_id, l_pw, function(err, u_id){
+    logincontroller.login(l_id, l_pw, function(err, user){
         if(err){
             console.error('err');
         }
         res.json({
-            "RESULT":u_id
+            "RESULT":user.user_name
         });
     });
 });
