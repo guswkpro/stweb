@@ -9,16 +9,12 @@ var connection = mysql.createConnection({
                         database: 'JungeDBInstance'
                         });
 
-connection.connect();
 
-connection.query('select * from Users_Table', function(err, rows, fields) {
-	connection.end();
-	if(!err){
-		console.log('The solution is: ', rows);
+exports.login = function(id, pw, callback){
+	connection.query('SELECT * FROM JungeDBInstance.Users_Table where user_id = ? AND user_pw = ?', [id, pw],function(error, result, fields){
+		console.log(result);
+		callback(error, result);
+	});
 
-	}else{
-		console.log('query error:' + err);
-	}
-});
+};
 
-connection.end()
