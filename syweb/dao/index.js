@@ -20,11 +20,11 @@ exports.login = function(l_id, l_pw, callback){
                     console.log('err');
                 }
                 console.log(user);
-                callback(error, user);
+                callback(err2, user);
             });
         }
         else{
-            callback(error, '0');
+            callback(err1, '0');
         }
     });
 }
