@@ -15,7 +15,7 @@ exports.login = function(l_id, l_pw, callback){
         var cnt=rows[0].cnt;
         console.log(cnt);
         if(cnt===1){
-            db.query(`SELECT * FROM user_table WHERE user_id=?`, [id], function(err2, user){
+            db.query(`SELECT * FROM user_table WHERE user_id=?`, [l_id], function(err2, user){
                 if(err2){
                     console.log('err');
                 }
