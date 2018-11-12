@@ -23,5 +23,8 @@ exports.login = function(l_id, l_pw, callback){
                 callback(error, user);
             });
         }
+        else{
+            callback(error, '0');
+        }
     });
 }
