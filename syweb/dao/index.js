@@ -20,7 +20,7 @@ exports.login = function(l_id, l_pw, callback){
                     console.log('err');
                 }
                 console.log(user);
-                collback(error, user);
+                callback(error, user);
             });
         }
     });
