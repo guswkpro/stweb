@@ -16,10 +16,6 @@ app.set('views', __dirname + '/views');
 
 
 app.get('/', function(req, res){
-    res.send('Hello World');
-});
-
-app.get('/main', function(req, res){
     res.render('./LoginForm.html');
 });
 
