@@ -19,8 +19,8 @@ exports.login = function(l_id, l_pw, callback){
                 if(err2){
                     console.log('err');
                 }
-                console.log(user[0]);
-                callback(err2, user[0]);
+                console.log(user);
+                callback(err2, user);
             });
         }
         else{
