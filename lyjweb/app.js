@@ -21,7 +21,10 @@ app.get('/', function(req, res){
 
 app.get('/Join',function(req,res){
     res.render('./JoinForm.html');
-})
+});
+app,get('/userprogile',function(req,res){
+    res.render('user.html');
+});
 
 app.post('/LoginForm',function(req, res){
 	
