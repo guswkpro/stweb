@@ -22,7 +22,7 @@ app.get('/', function(req, res){
 app.get('/Join',function(req,res){
     res.render('./JoinForm.html');
 });
-app,get('/userprogile',function(req,res){
+app.get('/userprogile',function(req,res){
     res.render('user.html');
 });
 
