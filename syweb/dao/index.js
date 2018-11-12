@@ -5,7 +5,7 @@ var db = mysql.createConnection({
     password : 'suyeondb',
     database : 'sydb'
   });
-  
+
 exports.login = function(l_id, l_pw, callback){
 
     db.query(`SELECT count(*) cnt FROM users_table WHERE user_id=? and user_pw=?`, [l_id, l_pw], function(err1, rows){
@@ -15,7 +15,7 @@ exports.login = function(l_id, l_pw, callback){
         var cnt=rows[0].cnt;
         console.log(cnt);
         if(cnt===1){
-            dq.query(`SELECT * FROM user_table WHERE user_id=?`, [id], function(err2, user){
+            db.query(`SELECT * FROM user_table WHERE user_id=?`, [id], function(err2, user){
                 if(err2){
                     console.log('err');
                 }
