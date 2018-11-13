@@ -51,6 +51,7 @@ app.post('/signup_process', function(req, res){
             console.error('err', err);
         }
         console.log(result);
-         res.send('<script> alert("Hi '+s_name+'"! you succeeded in joining!");</script>');
+        res.send('/');
+        //res.send('<script> alert("Hi '+s_name+'"! you succeeded in joining!");</script>');
     });
 });
