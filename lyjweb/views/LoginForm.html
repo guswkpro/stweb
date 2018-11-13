@@ -3,7 +3,7 @@
     <head>
        <script type="text/javascript">
         function goJoinForm(){
-            location.href="http://13.58.230.106:3000/Join";
+            location.href="http://13.58.230.106:3000/JoinForm";
         }
         function checkValue(){
             inputForm= eval("document.logininfo");
@@ -18,13 +18,15 @@
                 return false;
                 
             }
+            
         }
-        </script>
         
+
+        </script>
     </head>
     <body>
         <div id="wrap">
-            <form name="logininfo" aciotn="/LoginForm" method="post" onsubmit="return checkValue()">
+            <form name="logininfo" action="/LoginForm" method="post" onsubmit="return checkValue()">
                 <br>
                 <br>
                 <table>
