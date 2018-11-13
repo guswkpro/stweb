@@ -13,6 +13,7 @@ var db = mysql.createConnection({
           callback(error,result);
       });
   };
+  /*
 
   function getTimeStamp() {
     var d = new Date();
@@ -38,10 +39,10 @@ var db = mysql.createConnection({
     }
     return zero + n;
     }
-
+    */
   exports.join = function(id,pw,nick,email,callback){
-      var data= getTimeStamp();
-      var sign_data=data.toString();
+     // var data= getTimeStamp();
+      var sign_data=(new Date()).toISOString().split(/[T\.]/).slice(0,2).join(' ');
       db.query('INSERT INTO users_table(user_id,user_password,user_nickname,user_email,user_signdate,user_recent_date,user_image_path,user_withdraw,user_withdraw_date) VALUES(?,?,?,?,?,?,?,?,?)',[id,pw,nick,email,sign_data,sign_data,null,0,null],function(error,result,fields){
           console.log(result);
            callback(error,result);
