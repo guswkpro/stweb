@@ -36,7 +36,7 @@ app.post('/LoginForm',function(req, res){
 app.get('/JoinForm',function(req,res){
     res.render('./JoinForm.html');
 });
-
+/*
 app.post('/JoinForm',function(req, res){
     var req_id = req.body.id;
     var req_pw= req.body.password;
@@ -49,3 +49,4 @@ app.post('/JoinForm',function(req, res){
         });
     });
 });
+*/
