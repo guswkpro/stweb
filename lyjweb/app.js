@@ -9,6 +9,7 @@ var server = app.listen(3000, function(){
 var bodyParser = require('body-parser'); 
 //bodyparser(-->post request를 처리)을 사용하기 위해서
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 app.set('views', __dirname + '/views');
 app.set('views engine', 'ejs');
@@ -36,9 +37,8 @@ app.post('/LoginForm',function(req, res){
     var req_mem_pw = req.body.password;
     
     controller.login(req_mem_id,req_mem_pw,function(result){
-        res.json({
-            "RESULT":result
-        });
+        res.redirect('/main');
+        
     });
 });
 
@@ -55,8 +55,6 @@ app.post('/JoinForm',function(req, res){
     var req_email = req.body.email1 + req.body.email2;
 
     controller.join(req_id,req_pw,req_nick,req_email,function(result){
-        res.json({
-            "RESULT":result
-        });
+        res.redirect('/');
     });
 });

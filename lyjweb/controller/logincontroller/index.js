@@ -30,9 +30,9 @@ exports.join = function(id,pw,nick,email,callback){
         }
     ],function(error,result){
         if(!error){
-            console.log(error);
             callback("0");
         }else{
+            console.log(error);
             callback("1");
         }
     });
