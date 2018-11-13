@@ -21,7 +21,7 @@ exports.login = function(id,pw,callback){
     });
     //dao로 로그인 값 확인..?
 }
-
+/*
 exports.join = function(id,pw,nick,email,callback){
     ansync.waterfall([
         function(nextcallback){
@@ -36,7 +36,7 @@ exports.join = function(id,pw,nick,email,callback){
         }
     });
 }
-
+*/
 exports.getUserProfile = function(req,res){
     var req_mem_id = req.param('id');
 

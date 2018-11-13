@@ -32,6 +32,7 @@ app.post('/LoginForm',function(req, res){
     });
 });
 
+/*
 app.get('/JoinForm',function(req,res){
     res.render('./JoinForm.html');
 });
@@ -48,3 +49,4 @@ app.post('/JoinForm',function(req, res){
         });
     });
 });
+*/
