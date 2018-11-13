@@ -45,7 +45,7 @@ exports.getUserProfile = function(req,res){
         var count =0;
         var list=[];
 
-        async.whilst(function(){
+        ansync.whilst(function(){
             return count<result.length;
         }, function(callback){
             list.push(result[cout]);
