@@ -9,8 +9,8 @@ exports.login = function(id,pw,callback){
         function(nextcallback){
             dao.login(id,pw,nextcallback);
         }
-    ], function(err,result){
-        if(err){
+    ], function(error,result){
+        if(error){
             console.log(error);
             callback("0");
         }
@@ -28,8 +28,8 @@ exports.join = function(id,pw,nick,email,callback){
         function(nextcallback){
             dao.join(id,pw,nick,email,nextcallback);
         }
-    ],function(err,result){
-        if(err){
+    ],function(error,result){
+        if(error){
             console.log(error);
             callback("0");
         }else{
@@ -51,8 +51,8 @@ exports.getUserProfile = function(req,res){
             list.push(result[cout]);
             count++;
             callback();
-        },function(err){
-            console.log(err);
+        },function(error){
+            console.log(error);
         });
         res.json({
             memlist :list
