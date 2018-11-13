@@ -23,13 +23,15 @@ app.post('/login', function(req, res){
         if(err){
             console.error('err');
         }
-       res.render('./index.html', {
+       res.render('/index', {
            id:user.user_id,
            name:user.user_name
        });
     });
 });
-
+app.get('/index', function(req, res){
+    res.render('./index.html');
+});
 app.get('/signup', function(req, res){
     res.render('./signup.html');
 });
