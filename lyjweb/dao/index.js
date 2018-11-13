@@ -16,7 +16,7 @@ var db = mysql.createConnection({
 
   exports.join = function(id,pw,nick,email,callback){
         //var signtime= new Date().toLocaleDateString;
-      db.query('INSERT INTO users_table(user_id,user_password,user_nickname,user_email) VALUES(?,?,?,?)',[id,pw,nick,email,signdate],function(err,result,fields){
+      db.query('INSERT INTO users_table(user_id,user_password,user_nickname,user_email) VALUES(?,?,?,?)',[id,pw,nick,email],function(err,result,fields){
           console.log(result);
           callback(error,result);
       });
@@ -25,10 +25,6 @@ var db = mysql.createConnection({
   exports.getuser = (callback) => {
       db.query('select * from users_table', callback);
   }
-
-
-
-
 
 /*
     db.connect();
