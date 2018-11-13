@@ -28,3 +28,14 @@ exports.login = function(l_id, l_pw, callback){
         }
     });
 }
+exports.signup = function(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, callback){
+    db.query(`INSERT INTO users_table (user_id, user_pw, user_name, user_email, user_address,
+        user_mobile, user_birth, user_join_date, user_profile_path, user_point, user_access_date, user_witdraw)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,[s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, NOW(), "", 0, NOW(), 0],
+        function(err, result){
+            if(err){
+                console.log('err');
+            }
+            callback(err, result);
+        });
+}
