@@ -13,7 +13,7 @@ var db = mysql.createConnection({
           callback(error,result);
       });
   };
-/*
+
   exports.join = function(id,pw,nick,email,callback){
       db.query('INSERT INTO users_table(user_id,user_password,user_nickname,user_email) VALUES(?,?,?,?)',[id,pw,nick,email],function(err,result,fields){
           console.log(result);
@@ -21,7 +21,7 @@ var db = mysql.createConnection({
       });
   }
 
-  */
+
 
 
 
