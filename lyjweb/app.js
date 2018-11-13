@@ -40,7 +40,6 @@ app.post('/LoginForm',function(req, res){
             "RESULT":result
         });
     });
-    res.render('/main');
 });
 
 
@@ -56,6 +55,8 @@ app.post('/JoinForm',function(req, res){
     var req_email = req.body.email1 + req.body.email2;
 
     controller.join(req_id,req_pw,req_nick,req_email,function(result){
-        res.render('/');
+        res.json({
+            "RESULT":result
+        });
     });
 });
