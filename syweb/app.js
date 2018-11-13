@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var http = require('http');
 var bodyParser = require('body-parser')
 var logincontroller = require('./controller/logincontroller/index');
 var server = app.listen(3000, function(){
@@ -24,11 +23,13 @@ app.post('/login', function(req, res){
         if(err){
             console.error('err');
         }
-        res.json({
-            "RESULT":user.user_name
-        });
+       res.render('/index', {
+           id:user.user_id,
+           name:user.user_name
+       });
     });
 });
+
 app.get('/signup', function(req, res){
     res.render('./signup.html');
 });
