@@ -46,10 +46,11 @@ app.post('/signup_process', function(req, res){
     var s_mobile = req.body.mobile;
     var s_birth = req.body.birth;
 
-    singncontroller.signup(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, function(err){
+    singncontroller.signup(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, function(err, result){
         if(err){
-            console.log('err');
+            console.error('err', err);
         }
+        console.log(result);
          res.send('<script> alert("Hi '+s_name+'"! you succeeded in joining!"'+'"); location.href="/"; </script>');
     });
 });
