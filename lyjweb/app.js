@@ -30,7 +30,6 @@ app.post('/LoginForm',function(req, res){
             "RESULT":result
         });
     });
-
 });
 
 app.get('/JoinForm',function(req,res){
