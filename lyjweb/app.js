@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var controller = require('./controller/logincontroller');
 var server = app.listen(3000, function(){
     console.log("Express server has started on port 3000");
 });
@@ -19,13 +20,6 @@ app.get('/', function(req, res){
     res.render('./LoginForm.html');
 });
 
-app.get('/Join',function(req,res){
-    res.render('./JoinForm.html');
-});
-app.get('/userprogile',function(req,res){
-    res.render('user.html');
-});
-
 app.post('/LoginForm',function(req, res){
 	
     var req_mem_id = req.body.id;
@@ -37,4 +31,21 @@ app.post('/LoginForm',function(req, res){
         });
     });
 
+});
+
+app.get('/JoinForm',function(req,res){
+    res.render('./JoinForm.html');
+});
+
+app.post('/JoinForm',function(req, res){
+    var req_id = req.body.id;
+    var req_pw= req.body.password;
+    var req_nick = req.body.nickname;
+    var req_email = req.body.email1 + req.body.email2;
+
+    controller.join(req_id,req_pw,req_nick,req_email,function(result){
+        res.json({
+            "RESULT":result
+        });
+    });
 });
