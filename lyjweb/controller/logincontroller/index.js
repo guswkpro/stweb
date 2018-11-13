@@ -1,5 +1,6 @@
 var dao =require('../../dao/index.js');
-var async = require('async');
+var ansync = require('async');
+
 
 //로그인 위한 객체 생성..?
 exports.login = function(id,pw,callback){
@@ -21,7 +22,7 @@ exports.login = function(id,pw,callback){
     });
     //dao로 로그인 값 확인..?
 }
-/*
+
 exports.join = function(id,pw,nick,email,callback){
     ansync.waterfall([
         function(nextcallback){
@@ -36,7 +37,7 @@ exports.join = function(id,pw,nick,email,callback){
         }
     });
 }
-*/
+
 exports.getUserProfile = function(req,res){
     var req_mem_id = req.param('id');
 
