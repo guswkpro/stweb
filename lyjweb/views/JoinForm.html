@@ -95,6 +95,8 @@
                     return false;
                 }
             }
+            
+
             function signup(){
                 alert("회원가입이 되었습니다.");
                 
@@ -112,7 +114,7 @@
                     <td id="id">아이디</td>
                     <td>
                         <input type="text" name="id" maxlength="15">
-                        <input type="button" value="중복확인">
+                        <input type="button" value="중복확인" onclick="idcheck()">
                     </td>
                 </tr>
                 <tr>
