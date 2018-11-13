@@ -36,6 +36,6 @@ exports.signup = function(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_bi
             if(err){
                 console.log('err');
             }
-            callback(err, result);
+            callback(err);
         });
 }
