@@ -8,7 +8,7 @@ var db = mysql.createConnection({
   });
 
   exports.login=function(id,pw,callback){
-      db.query('SELECT * FROM users_table where user_id=? AND user_password =?',[id,pw],function(err,result,fields){
+      db.query('SELECT * FROM users_table where user_id=? AND user_password =?',[id,pw],function(error,result,fields){
           console.log(result);
           callback(error,result);
       });
@@ -16,9 +16,9 @@ var db = mysql.createConnection({
 
   exports.join = function(id,pw,nick,email,callback){
         //var signtime= new Date().toLocaleDateString;
-      db.query('INSERT INTO users_table(user_id,user_password,user_nickname,user_email) VALUES(?,?,?,?)',[id,pw,nick,email],function(err,result,fields){
+      db.query('INSERT INTO users_table(user_id,user_password,user_nickname,user_email) VALUES(?,?,?,?)',[id,pw,nick,email],function(error,result,fields){
           console.log(result);
-         // callback(error,result);
+           callback(error,result);
       });
   }
 
