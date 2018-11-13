@@ -19,6 +19,13 @@ app.get('/', function(req, res){
     res.render('./LoginForm.html');
 });
 
+app.get('/getUserInfo', (req, res) => {
+    dao.getuser((err, rows)=> {
+        res.send(rows);
+    });
+});
+
+
 app.post('/LoginForm',function(req, res){
 	
     var req_mem_id = req.body.id;
@@ -31,12 +38,6 @@ app.post('/LoginForm',function(req, res){
         });
     });
 });
-
-app.get('/getUserInfo', (req, res) => {
-    dao.getuser((err, rows)=> {
-        res.send(rows);
-    })
-})
 
 
 app.get('/JoinForm',function(req,res){
