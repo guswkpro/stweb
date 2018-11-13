@@ -23,7 +23,7 @@ app.post('/login', function(req, res){
         if(err){
             console.error('err');
         }
-       res.render('/index', {
+       res.render('./index.html', {
            id:user.user_id,
            name:user.user_name
        });
