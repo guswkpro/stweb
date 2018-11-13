@@ -2,6 +2,7 @@ var express = require('express');
 var http = require('http');
 var controller = require('./controller/logincontroller');
 var app = express();
+var dao = require('./dao/index')
 var server = app.listen(3000, function(){
     console.log("Express server has started on port 3000");
 });
@@ -29,6 +30,12 @@ app.post('/LoginForm',function(req, res){
         });
     });
 });
+
+app.get('/getUserInfo', (req, res) => {
+    dao.getuser((err, rows)=> {
+        res.send(rows);
+    })
+})
 
 
 app.get('/JoinForm',function(req,res){

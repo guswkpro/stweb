@@ -21,6 +21,10 @@ var db = mysql.createConnection({
       });
   }
 
+  exports.getuser = (callback) => {
+      db.query('select * from users_table', callback);
+  }
+
 
 
 
