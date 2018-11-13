@@ -19,6 +19,10 @@ app.get('/', function(req, res){
     res.render('./LoginForm.html');
 });
 
+app.get('/main',function(req,res){
+    res.render('./main.html');
+})
+
 app.get('/getUserInfo', (req, res) => {
     dao.getuser((err, rows)=> {
         res.send(rows);
@@ -36,7 +40,7 @@ app.post('/LoginForm',function(req, res){
             "RESULT":result
         });
     });
-    res.render('./main.html');
+    res.redirect('/main');
 });
 
 
@@ -52,8 +56,6 @@ app.post('/JoinForm',function(req, res){
     var req_email = req.body.email1 + req.body.email2;
 
     controller.join(req_id,req_pw,req_nick,req_email,function(result){
-        res.json({
-            "RESULT":result
-        });
+        res.redirect('/');
     });
 });
