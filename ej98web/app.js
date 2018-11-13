@@ -17,7 +17,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/signup', function(req, res){
-	res.render("/Sign.html");
+	res.render("./signup.html");
 });
 
 app.post('/logincheck', function(req, res){
