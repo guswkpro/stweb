@@ -25,6 +25,7 @@ app.post('/LoginForm',function(req, res){
     var req_mem_pw = req.body.password;
     
     controller.login(req_mem_id,req_mem_pw,function(result){
+        console.log(result);
         res.json({
             "RESULT":result
         });
