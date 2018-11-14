@@ -21,13 +21,14 @@ var db = mysql.createConnection({
 
 
 //실험중
+/*
   exports.check=function(id,callback){
       db.query('SELECT *FROM users_table where user_id =?',[id],function(error,reuslt,fields){
             callback(error,result);
       })
   }
 
- 
+ */
   
   exports.join = function(id,pw,nick,email,callback){
      // var data= new Date().toLocaleDateString('se').replace(/\D/g, '')
