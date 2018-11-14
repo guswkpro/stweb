@@ -18,3 +18,4 @@ exports.login = function(id, pw, callback){
 
 };
 
+//exports.join = function('INSERT INTO JungeDBInstacne.Users_Table(user_id, user_pw, user_mail, user_nickname, user_tel)
