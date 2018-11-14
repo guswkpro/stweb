@@ -63,7 +63,15 @@
             }
         
         </script>
-        <script type="text/javascript" src="../controller/logincontroller.js"></script>
+        <script src="../controller/logincontroller">
+        function idcheck(){
+            controller.check(document.getElementById.id.value,function(result){
+                alert("사용중인 아이디입니다.");
+                inputForm.id.focus();
+                return false;
+            })
+        }
+        </script>
     </head>
     <body>
         <div id="wrap">

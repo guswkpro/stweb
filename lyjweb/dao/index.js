@@ -18,11 +18,13 @@ var db = mysql.createConnection({
      // });
   };
 
-  exports.idecheck=function(id,callback){
-     db.query('SELECT *FROM users_table where user_id=?',[id],function(error,result,fields){
-        callback(error,result);
-      });
-  };
+  exports.check=function(id,callback){
+      db.query('SELECT *FROM users_table where user_id =?',[id],function(error,reuslt,fields){
+            callback(error,result);
+      })
+  }
+
+ 
   /*
 
   function getTimeStamp() {

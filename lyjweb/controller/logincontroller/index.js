@@ -63,7 +63,17 @@ exports.getUserProfile = function(req,res){
     });
 };
 
-var check= document.getElementById('idcheck');
-check.addEventListener('click',function(){
-    alert('hello world');
-})
+exports.check= function(id,callback){
+    async.waterfall([
+        function(nextcallback){
+            dao.check(id,nextcallback);
+        }
+    ], function(error,result){
+        if(error){
+            callback("0");
+        }
+        else{
+            callback("1");
+        }
+    });
+};
