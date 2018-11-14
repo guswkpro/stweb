@@ -29,7 +29,7 @@ exports.login = function(l_id, l_pw, callback){
     });
 }
 exports.signup = function(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, callback){
-    db.query(`SELECT count(8) cnt FROM users_table WHERE user_id=?`, [s_id], function(err1, rows){
+    db.query(`SELECT count(*) cnt FROM users_table WHERE user_id=?`, [s_id], function(err1, rows){
         if(err1){
             console.err('err', err);
         }
@@ -43,8 +43,8 @@ exports.signup = function(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_bi
                 callback(err2, result);
             });
         }
-        else{
-            callback(err1, '0');
+        else if(cnt===1){
+            callback(err1, '1');
         }
     })
 }
