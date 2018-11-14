@@ -17,6 +17,12 @@ var db = mysql.createConnection({
      //     console.log(result);
      // });
   };
+
+  exports.idecheck=function(id,callback){
+     db.query('SELECT *FROM users_table where user_id=?',[id],function(error,result,fields){
+        callback(error,result);
+      });
+  };
   /*
 
   function getTimeStamp() {

@@ -23,6 +23,21 @@ exports.login = function(id,pw,callback){
     //dao로 로그인 값 확인..?
 }
 
+exports.check = function(id,callback){
+    async.waterfall([
+        function(nextcallback){
+            dao.check(id,nextcallback);
+        }
+    ],function(error,result){
+        if(error){
+            callback("0");
+        }
+        else{
+            callback("1");
+        }
+    })
+}
+
 exports.join = function(id,pw,nick,email,callback){
     async.waterfall([
         function(nextcallback){
