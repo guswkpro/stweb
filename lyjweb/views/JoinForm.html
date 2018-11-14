@@ -61,18 +61,9 @@
                 alert("회원가입이 되었습니다.");
                 
             }
-            
-            var controller =require('./logincontroller/index');
-            function idcheck(){
-                controller.idcheck(document.userinfo.id.value,function(result){
-                    if(result==1){
-                        alert("사용중인 아이디입니다.")
-                    }
-                });
-            }
-
         
         </script>
+        <script type="text/javascript" src="../controller/logincontroller.js"></script>
     </head>
     <body>
         <div id="wrap">
