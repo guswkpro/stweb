@@ -61,7 +61,15 @@
                 alert("회원가입이 되었습니다.");
                 
             }
-
+            function idcheck(){
+                controller.check(document.getElementById.id.value,function(result){
+                    if(res.value==1){
+                        ("사용중인 아이디입니다.");
+                    inputForm.id.focus();
+                    return false;
+                    }
+                })
+            }
             
         
     
