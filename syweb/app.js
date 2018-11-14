@@ -29,8 +29,7 @@ app.post('/login_process', function(req, res){
             console.error('err');
         }
         if(user==='0'){
-            res.redirect('/');
-            res.send('<script type="text/javascript">alert("login failed check your id or password")</script>');
+            res.send('<script type="text/javascript">alert("login failed check your id or password"); location.href="/"</script>');
         }else{
        res.json("name: "+ user.user_name);
     }
