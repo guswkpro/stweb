@@ -50,7 +50,7 @@ app.post('/signup_process', function(req, res){
     var s_mobile = req.body.mobile;
     var s_birth = req.body.birth;
     if(s_id === '' || s_pw === '' || s_name ===''){
-        res.send('<script type="text/javascript">alert("please, check the blank"); location.href="./signup.html";</script>');
+        res.send('<script type="text/javascript">alert("please, check the blank"); location.href="./signup";</script>');
     }else{
         singncontroller.signup(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, function(err, result){
             if(err){
@@ -59,7 +59,7 @@ app.post('/signup_process', function(req, res){
             console.log(result);
             
             if(result==='1'){
-                res.send('<script type="text/javascript">alert("check the Id, overlapped"); location.href="./signup.html";</script>');
+                res.send('<script type="text/javascript">alert("check the Id, overlapped"); location.href="/signup";</script>');
             }
             else{
             res.redirect('/');
