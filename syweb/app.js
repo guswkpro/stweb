@@ -55,7 +55,12 @@ app.post('/signup_process', function(req, res){
             console.error('err', err);
         }
         console.log(result);
+        if(result===NULL){
+            res.send('<script type="text/javascript">alert("please, check the blank"); location.href="./sign.html";</script>');
+        }
+        else{
         res.redirect('/');
         //res.render('<script> alert("Hi '+s_name+'"! you succeeded in joining!");</script>');
+    }
     });
 });
