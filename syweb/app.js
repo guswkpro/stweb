@@ -49,23 +49,24 @@ app.post('/signup_process', function(req, res){
     var s_address = req.body.email;
     var s_mobile = req.body.mobile;
     var s_birth = req.body.birth;
-    console.log(req.body);
-/*    singncontroller.signup(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, function(err, result){
-        if(err){
-            console.error('err', err);
+    if(s_id === '' || s_pw === '' || s_name ===''){
+        res.send('<script type="text/javascript">alert("please, check the blank"); location.href="./signup.html";</script>');
+    }else{
+        singncontroller.signup(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, function(err, result){
+            if(err){
+                console.error('err', err);
+            }
+            console.log(result);
+            
+            if(result==='1'){
+                res.send('<script type="text/javascript">alert("check the Id, overlapped"); location.href="./signup.html";</script>');
+            }
+            else{
+            res.redirect('/');
+            //res.render('<script> alert("Hi '+s_name+'"! you succeeded in joining!");</script>');
         }
-        console.log(result);
-        if(result==='0'){
-            res.send('<script type="text/javascript">alert("please, check the blank"); location.href="./signup.html";</script>');
-        }
-        else if(result==='1'){
-            res.send('<script type="text/javascript">alert("check the Id, overlapped"); location.href="./signup.html";</script>');
-
-        }
-        else{
-        res.redirect('/');
-        //res.render('<script> alert("Hi '+s_name+'"! you succeeded in joining!");</script>');
+        });
     }
-    });
-    */
+
+
 });
