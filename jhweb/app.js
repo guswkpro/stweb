@@ -22,9 +22,7 @@ app.engine('html', require('ejs').renderFile);
 app.get('/',function(req, res){
 	res.render('user/login.html');
 
-//	res.json({
-//		"RESUTL" : "server ON"
-});
+);
 app.get('/signup', function(req, res){
 	res.render('user/signup.html');
 });
