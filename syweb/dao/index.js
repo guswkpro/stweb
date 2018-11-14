@@ -44,7 +44,7 @@ exports.signup = function(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_bi
             });
         }
         else{
-            callback(err1, result);
+            callback(err1, '0');
         }
     })
 }

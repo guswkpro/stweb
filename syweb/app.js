@@ -55,7 +55,7 @@ app.post('/signup_process', function(req, res){
             console.error('err', err);
         }
         console.log(result);
-        if(result===NULL){
+        if(result==='0'){
             res.send('<script type="text/javascript">alert("please, check the blank"); location.href="./sign.html";</script>');
         }
         else{
