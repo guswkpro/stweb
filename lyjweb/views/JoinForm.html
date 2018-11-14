@@ -55,13 +55,16 @@
                     inputForm.email.focus();
                     return false;
                 }
+
+                else{
+                alert("회원가입이 되었습니다.");
+                
+                }
+
             }
             
 
-            function signup(){
-                alert("회원가입이 되었습니다.");
-                
-            }
+            
             function idcheck(){
                 controller.check(document.getElementById.id.value,function(result){
                     if(res.value==1){
@@ -114,7 +117,7 @@
                 </tr>
             </table>
             <br>
-            <input type="submit" value="가입" onclick="signup()">
+            <input type="submit" value="가입">
             <input type="button" value="취소"  onclick="goLoginForm()">
             </form>
         </div>
