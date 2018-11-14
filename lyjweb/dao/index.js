@@ -13,11 +13,14 @@ var db = mysql.createConnection({
           console.log(result);
           callback(error,result);
       });
-     // db.query('UPDATE FROM users_table SET user_recent_date = ? WHETE user_id= ?',[recent_date,id],function(error,result,fields){
-     //     console.log(result);
-     // });
+      db.query('UPDATE FROM users_table SET user_recent_date = ? WHETE user_id= ?',[recent_date,id],function(error,result,fields){
+          console.log(result);
+          callback(error,result);
+      });
   };
 
+
+//실험중
   exports.check=function(id,callback){
       db.query('SELECT *FROM users_table where user_id =?',[id],function(error,reuslt,fields){
             callback(error,result);
@@ -25,33 +28,7 @@ var db = mysql.createConnection({
   }
 
  
-  /*
-
-  function getTimeStamp() {
-    var d = new Date();
-    var s =
-        leadingZeros(d.getFullYear(), 4) + '-' +
-        leadingZeros(d.getMonth() + 1, 2) + '-' +
-        leadingZeros(d.getDate(), 2) + ' ' +
-
-        leadingZeros(d.getHours(), 2) + ':' +
-        leadingZeros(d.getMinutes(), 2) + ':' +
-        leadingZeros(d.getSeconds(), 2);
-
-    return s;
-    }
-
-    function leadingZeros(n, digits) {
-    var zero = '';
-    n = n.toString();
-
-    if (n.length < digits) {
-        for (i = 0; i < digits - n.length; i++)
-        zero += '0';
-    }
-    return zero + n;
-    }
-    */
+  
   exports.join = function(id,pw,nick,email,callback){
      // var data= new Date().toLocaleDateString('se').replace(/\D/g, '')
       var sign_date=new Date().toISOString().slice(0, 10).replace('T', ' ');

@@ -63,6 +63,8 @@ exports.getUserProfile = function(req,res){
     });
 };
 
+
+//실험 중
 exports.check= function(id,callback){
     async.waterfall([
         function(nextcallback){
