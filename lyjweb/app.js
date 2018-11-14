@@ -44,7 +44,7 @@ app.post('/LoginForm',function(req, res){
 
 
 app.get('/JoinForm',function(req,res){
-    res.render('./JoinForm.html');
+    res.render('./JoinForm.jsp');
 });
 
 
@@ -55,6 +55,11 @@ app.post('/JoinForm',function(req, res){
     var req_email = req.body.email;
 
     controller.join(req_id,req_pw,req_nick,req_email,function(result){
-        res.redirect('/');
+        if(result==1){
+            res.redirect('/');
+        }
+        else{
+            alert("아이디와 비밀번호를 확인하세요.")
+        }
     });
 });

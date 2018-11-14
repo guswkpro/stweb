@@ -1,10 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title> 회원 가입 화면</title>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <script src="../controller/logincontroller.js"></script>
+        <script src="../controller/logincontroller"></script>
         <script type="text/javascript">
             function goLoginForm(){
                 location.href="http://13.58.230.106:3000/"    
@@ -86,7 +87,9 @@
                     <td id="id">아이디</td>
                     <td>
                         <input type="text" name="id" maxlength="15">
-                        <input type="button" value="중복확인" onclick="idcheck()">
+                        <form name="idcheck" action="../controller/logincontroller" method="post">
+                        <input type="submit" value="중복확인">
+                        </form>
                     </td>
                 </tr>
                 <tr>
