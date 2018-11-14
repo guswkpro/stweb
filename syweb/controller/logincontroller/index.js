@@ -5,11 +5,6 @@ exports.login = function(l_id, l_pw, callback){
         if(err){
             console.log('err');
         }
-        if(result==='0'){
-            callback(err, '0');
-        }
-        else{
         callback(err, result);
-    }
     });
 }
