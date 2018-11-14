@@ -13,7 +13,7 @@ var db = mysql.createConnection({
           console.log(result);
           callback(error,result);
       });
-      db.query('UPDATE FROM users_table SET user_recent_date ? WHETE user_id= ?',[recent_date,id]);
+      db.query('UPDATE FROM users_table SET user_recent_date = ? WHETE user_id= ?',[recent_date,id]);
   };
   /*
 

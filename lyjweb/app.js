@@ -52,7 +52,7 @@ app.post('/JoinForm',function(req, res){
     var req_id = req.body.id;
     var req_pw= req.body.password;
     var req_nick = req.body.nickname;
-    var req_email = req.body.email1 + req.body.email2;
+    var req_email = req.body.email1 +'@'+ req.body.email2;
 
     controller.join(req_id,req_pw,req_nick,req_email,function(result){
         res.redirect('/');
