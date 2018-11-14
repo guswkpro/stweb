@@ -10,4 +10,16 @@ var server = app.listen(3000, function(){
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.set('views', __dirname + '/views');
+app.set('view engin', 'ejs');
+app.engin('html', require('ejs').renderFile);
+
+app.get('/', function(req, res){
+	res.render('login.html');
+})
+
+app.get('/login', function(req, res){
+	res.render('login.html')
+})
+
 
