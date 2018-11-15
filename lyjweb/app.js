@@ -57,7 +57,7 @@ app.post('/JoinForm',function(req, res){
 
     controller.join(req_id,req_pw,req_nick,req_email,function(result){
               
-            res.redirect('/');
+            res.render('/');
         
     });
 });
