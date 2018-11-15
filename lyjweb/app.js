@@ -55,10 +55,13 @@ app.post('/JoinForm',function(req, res){
     var req_email = req.body.email;
 
     controller.join(req_id,req_pw,req_nick,req_email,function(result){
-        res.json({
-			"RESULT" : result
-		});
-        //res.render('/');
+        if(result==1){
+            res.render('/');
+        }
+        else{
+            alert("다시 입력해주세요.");
+            res.render('/JoinForm');
+        }
         
     });
 });
