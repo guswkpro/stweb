@@ -42,17 +42,9 @@ app.post('/signcheck', function(req,res){
         var unickname = req.body.name;
         var uemail = req.body.email;
 
-        var connection = client.query('INSERT into users_table ( user_id, user_pw, user_mail, user_nickname) values(?,?,?,?)', [uid, upw, uemail, unickname], function(err, rows){
-
-        console.log(rows);
-
-        if(err){
-                console.error('err', err);
-                throw err;
- }
-                console.log(connection);
-        });
-
-        res.redirect('/');
-
+	controller.signup(uid, upw, uemail, unickname, function(result){
+		res.json({
+			"RESULT" : result
+		});
+	});
 });

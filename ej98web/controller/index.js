@@ -24,6 +24,26 @@ exports.login = function(uid,upw, callback) {
 
 };
 
+exports.signup = function(uid, upw, uemail, unickname, callback){
+
+	    async.waterfall([
+                function(nextCallback){
+                        dao.signup(uid,upw,uemail, unickname, nextCallback);
+                }
+        ], function(error, result){
+                if(error){
+                        console.log(error);
+                        callback("0");
+                }
+                else if(result.length == 0) {
+                        callback("2");
+                }
+                else{
+                        callback("1");
+                }
+        });
+};
+
 
 exports.getUserProfile = function(req, res) {
 	var uid = req.param('id');
