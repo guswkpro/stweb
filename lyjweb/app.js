@@ -56,7 +56,7 @@ app.post('/JoinForm',function(req, res){
 
     controller.join(req_id,req_pw,req_nick,req_email,function(error,result){
         if(error){
-            alert("err");
+            res.send('<script type="text/javascript">alert("다시 입력하세요."); location.href="/JoinForm"</script>');
         }
         if(result=='1'){
             res.render('/');
