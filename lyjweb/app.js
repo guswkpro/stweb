@@ -54,16 +54,10 @@ app.post('/JoinForm',function(req, res){
     var req_nick = req.body.nickname;
     var req_email = req.body.email;
 
-    controller.join(req_id,req_pw,req_nick,req_email,function(error,result){
-        if(error){
-            res.send('<script type="text/javascript">alert("다시 입력하세요."); location.href="/JoinForm"</script>');
-        }
-        if(result=='1'){
-            res.render('/');
-        }
-        else{
-            res.render('/JoinForm');
-        }
+    controller.join(req_id,req_pw,req_nick,req_email,function(result){
+        res.json({
+			"result":result
+        });
         
     });
 });
