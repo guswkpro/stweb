@@ -48,6 +48,7 @@ app.get('/JoinForm',function(req,res){
 });
 
 
+
 app.post('/JoinForm',function(req, res){
     var req_id = req.body.id;
     var req_pw= req.body.password;
