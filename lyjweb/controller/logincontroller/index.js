@@ -31,7 +31,7 @@ exports.join = function(id,pw,nick,email,callback){
             dao.join(id,pw,nick,email,nextcallback);
         }
     ],function(error,result){
-        if(error){
+        if(!error){
             callback("0");
         }else{
             console.log(error);
