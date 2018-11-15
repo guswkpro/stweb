@@ -41,9 +41,9 @@ exports.join = function(id,pw,nick,email,callback){
     ],function(error,result){
         if(!error){
             console.log(error);
-            callback("0");
+            callback(error,result);
         }else{
-            callback("1");
+            callback(error,result);
         }
         
     });
