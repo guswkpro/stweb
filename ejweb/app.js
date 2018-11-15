@@ -22,4 +22,15 @@ app.get('/login', function(req, res){
 	res.render('login.html')
 })
 
+app.post('/login', function(req, res){
+	var req_mem_id = req.body.id;
+	var req_mem_pw = req.body.pw;
+
+	controller.logincontroller(req_mem_id, req_mem_pw, function(result){
+		res.json({
+			"RESULT" : result
+		});
+	});
+});
+
 
