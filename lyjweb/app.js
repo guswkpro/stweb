@@ -54,11 +54,16 @@ app.post('/JoinForm',function(req, res){
     var req_nick = req.body.nickname;
     var req_email = req.body.email;
 
-    controller.join(req_id,req_pw,req_nick,req_email,function(result){
-        res.json({
-			
-        });
-        res.render('/LoginForm');
+    controller.join(req_id,req_pw,req_nick,req_email,function(error,result){
+        if(error){
+            alert("err");
+        }
+        if(result=='1'){
+            res.render('/');
+        }
+        else{
+            res.render('/JoinForm');
+        }
         
     });
 });
