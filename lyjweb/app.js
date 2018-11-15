@@ -42,9 +42,8 @@ app.post('/LoginForm',function(req, res){
     });
 });
 
-
 app.get('/JoinForm',function(req,res){
-    res.redirect('./JoinForm.html');
+    res.render('./JoinForm.html');
 });
 
 
