@@ -58,7 +58,7 @@ app.post('/signup_process', function(req, res){
             }
             console.log(result);
             
-            if(result==='1'){
+            if(result==='double'){
                 res.send('<script type="text/javascript">alert("check the Id, overlapped"); location.href="/signup";</script>');
             }
             else{
