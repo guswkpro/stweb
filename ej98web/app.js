@@ -33,6 +33,10 @@ app.post('/logincheck', function(req, res){
 		res.json({
 			"RESULT" : result
 		});
+		res.redirect('./main.html');
+		if(err){
+		 res.send('<script> alert("id or passwd is wrong"); history.baack();</script>');
+		}
 	});
 });
 
@@ -46,5 +50,7 @@ app.post('/signcheck', function(req,res){
 		res.json({
 			"RESULT" : result
 		});
+		res.redirect('/');
 	});
+
 });
