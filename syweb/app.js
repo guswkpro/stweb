@@ -24,7 +24,11 @@ app.get('/login', function(req, res){
 app.post('/login_process', function(req, res){
     var l_id=req.body.id;
     var l_pw=req.body.pw;
-    logincontroller.login(l_id, l_pw, function(err, user){
+    if(l_id === '' || l_pw === ''){
+        res.send('<script type="text/javascript">alert("check the blank"); location.href="/"</script>');
+    }
+    else{       
+        logincontroller.login(l_id, l_pw, function(err, user){
         if(err){
             console.error('err');
         }
@@ -34,6 +38,7 @@ app.post('/login_process', function(req, res){
        res.json("name: "+ user.user_name);
     }
     });
+}
 });
 
 app.get('/signup', function(req, res){
