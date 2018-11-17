@@ -1,7 +1,7 @@
 var express = require
 var path = require('path')
 var mysql = require('mysql');
-//npm install express-mysql-session --save //Mysql을 Express의 Session store로 사용
+
 
 var connection = mysql.createConnection({
 						host: 'jungedbinstance.colngshlieoc.us-east-2.rds.amazonaws.com',
