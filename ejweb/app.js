@@ -3,6 +3,9 @@ var http = require('http');
 var logincontroller = require('./controller/logincontroller');
 var app = express();
 var bodyParser = require('body-parser');
+//var session = require(express-session) // 세션
+//npm install express-session --save
+
 
 var server = app.listen(3000, function(){
 	console.log("Express server has started on port 3000")
