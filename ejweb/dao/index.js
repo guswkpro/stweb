@@ -1,5 +1,7 @@
+var express = require
 var path = require('path')
 var mysql = require('mysql');
+
 
 var connection = mysql.createConnection({
 						host: 'jungedbinstance.colngshlieoc.us-east-2.rds.amazonaws.com',

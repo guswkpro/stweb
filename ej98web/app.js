@@ -30,13 +30,13 @@ app.post('/logincheck', function(req, res){
         var upw = req.body.pw;
 
 	controller.login(uid, upw, function(result){
+		if(err){
+			res.send('<script> alert("id or passwd is wrong"); history.back();</script>');
+		}
 		res.json({
 			"RESULT" : result
 		});
 		res.redirect('./main.html');
-		if(err){
-		 res.send('<script> alert("id or passwd is wrong"); history.baack();</script>');
-		}
 	});
 });
 
