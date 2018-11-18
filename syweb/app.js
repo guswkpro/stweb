@@ -25,7 +25,7 @@ app.post('/login_process', function(req, res){
     var l_id=req.body.id;
     var l_pw=req.body.pw;
     if(l_id === '' || l_pw === ''){
-        res.send('<script type="text/javascript">alert("check the blank"); location.href="/"</script>');
+        res.send('<script type="text/javascript">alert("check the blank");</script>');
     }
     else{       
         logincontroller.login(l_id, l_pw, function(err, user){
