@@ -55,7 +55,7 @@ app.post('/signup_process', function(req, res){
     var s_mobile = req.body.mobile;
     var s_birth = req.body.birth;
     if(s_id === '' || s_pw === '' || s_name ===''){
-        res.send('<script type="text/javascript">alert("please, check the blank"); location.href="./signup";</script>');
+        res.send('<script type="text/javascript">alert("please, check the blank"); history.go(-1);</script>');
     }else{
         singncontroller.signup(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, function(err, result){
             if(err){
@@ -68,7 +68,6 @@ app.post('/signup_process', function(req, res){
             }
             else{
             res.redirect('/');
-            //res.render('<script> alert("Hi '+s_name+'"! you succeeded in joining!");</script>');
         }
         });
     }
