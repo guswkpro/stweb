@@ -38,7 +38,12 @@ app.use(session({
 //resave 세션아이디를 접속할때마다 발급하지 않는다.
 
 app.get('/', function(req, res){
-	res.render('login.html');
+	if(req.session.displayName){ //값이 있으면 로그인 되어있는 상태
+		res.rend('logout.html');
+	}
+	else{//값이 없으면 로그인 실패 또는 아직 로그인을 안한 상태
+		res.redirect('/login');
+	}
 })
 
 app.get('/login', function(req, res){
@@ -46,10 +51,10 @@ app.get('/login', function(req, res){
 })
 
 app.post('/loginprocess', function(req, res){
-	var req_mem_id = req.body.id;
+	var req_mem_id = req.body.id; //post방식으로 보낸 값을 가져옴
 	var req_mem_pw = req.body.pw;
 
-	controller.logincontroller(req_mem_id, req_mem_pw, function(result){
+	controller.login(req_mem_id, req_mem_pw, function(result){
 		res.json({
 			"RESULT" : result
 		});
