@@ -19,19 +19,15 @@ app.get('/', function(req, res){
         res.render("./login.html");
 });
 
-
-
 app.get('/signup', function(req, res){
         res.render("./signup.html");
 });
 
 app.post('/logincheck', function(req, res){
-        var uid = req.body.id;
-        var upw = req.body.pw;
 
 	controller.login(uid, upw, function(result){
 		if(err){
-			res.send('<script> alert("id or passwd is wrong"); history.back();</script>');
+			res.send('<script> alert("id or passwd is wrong");</script>');
 		}
 		res.json({
 			"RESULT" : result
@@ -41,16 +37,14 @@ app.post('/logincheck', function(req, res){
 });
 
 app.post('/signcheck', function(req,res){
-        var uid = req.body.id;
-        var upw = req.body.pw;
-        var unickname = req.body.name;
-        var uemail = req.body.email;
 
 	controller.signup(uid, upw, uemail, unickname, function(result){
 		res.json({
-			"RESULT" : result
+			"RESULT": result
 		});
+               if(result.length == 1)	{
 		res.redirect('/');
+		}
 	});
 
 });
