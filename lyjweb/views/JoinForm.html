@@ -6,9 +6,6 @@
         <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script>  -->
         <!-- <script src="../controller/logincontroller.js"></script>  -->
         <script type="text/javascript">
-            function goLoginForm(){screenTop
-                location.href="http://13.58.230.106:3000/"    
-            }
             function checkspecial(str){
                 var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; 
                 if(special_pattern.test(str) == true) {
@@ -57,12 +54,13 @@
                     inputForm.email.focus();
                     return false;
                 }
-                
+        
                     alert("회원가입이 되었습니다.");
                     return true;
                 
 
             }
+            /*
             function idcheck(){
                 controller.check(document.getElementById.id.value,function(result){
                     if(res.value==1){
@@ -72,6 +70,11 @@
                     }
                 })
             }
+            */
+            function goLoginForm(){screenTop
+                location.href="http://13.58.230.106:3000/"    
+            }
+
         </script>
     </head>
     <body>
