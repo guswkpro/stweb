@@ -3,8 +3,11 @@ var async = require('async');
 
 
 
-exports.login = function(uid,upw, callback) {
+exports.login = function(req, res) {
  
+	var uid = req.body.id;
+	var upw = req.body.pw;
+
 	async.waterfall([
 		function(nextCallback){
 			dao.login(uid,upw,nextCallback);
@@ -12,16 +15,37 @@ exports.login = function(uid,upw, callback) {
 	], function(error, result){
 		if(error){
 			console.log(error);
-			callback("0");
+			nextcallback("0");
 		}
 		else if(result.length == 0) {
-			callback("2");
+			nextcallback("2");
 		}
 		else{
-			callback("1");
+			nextcallback("1");
 		}
 	});
 
+};
+
+exports.signup = function(req, res){
+	var uid = req.body.id;
+	var upw = req.body.pw;
+	var uemail = req.body.email;
+	var unickname = req.body.nickname;
+
+	    async.waterfall([
+                function(nextCallback){
+                        dao.signup(uid,upw,uemail, unickname, nextCallback);
+                }
+        ], function(error){
+                if(error){
+                        console.log(error);
+                        nextcallback("0");
+                }
+                else{
+                        nextcallback("1");
+                }
+        });
 };
 
 

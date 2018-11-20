@@ -19,40 +19,32 @@ app.get('/', function(req, res){
         res.render("./login.html");
 });
 
-
-
 app.get('/signup', function(req, res){
         res.render("./signup.html");
 });
 
 app.post('/logincheck', function(req, res){
-        var uid = req.body.id;
-        var upw = req.body.pw;
 
 	controller.login(uid, upw, function(result){
+		if(err){
+			res.send('<script> alert("id or passwd is wrong");</script>');
+		}
 		res.json({
 			"RESULT" : result
 		});
+		res.redirect('./main.html');
 	});
 });
 
 app.post('/signcheck', function(req,res){
-        var uid = req.body.id;
-        var upw = req.body.pw;
-        var unickname = req.body.name;
-        var uemail = req.body.email;
 
-        var connection = client.query('INSERT into users_table ( user_id, user_pw, user_mail, user_nickname) values(?,?,?,?)', [uid, upw, uemail, unickname], function(err, rows){
-
-        console.log(rows);
-
-        if(err){
-                console.error('err', err);
-                throw err;
- }
-                console.log(connection);
-        });
-
-        res.redirect('/');
+	controller.signup(uid, upw, uemail, unickname, function(result){
+		res.json({
+			"RESULT": result
+		});
+               if(result.length == 1)	{
+		res.redirect('/');
+		}
+	});
 
 });

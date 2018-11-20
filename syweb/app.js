@@ -24,16 +24,21 @@ app.get('/login', function(req, res){
 app.post('/login_process', function(req, res){
     var l_id=req.body.id;
     var l_pw=req.body.pw;
-    logincontroller.login(l_id, l_pw, function(err, user){
+    if(l_id === '' || l_pw === ''){
+        res.send('<script type="text/javascript">alert("check the blank"); history.go(-1);</script>');
+    }
+    else{       
+        logincontroller.login(l_id, l_pw, function(err, user){
         if(err){
             console.error('err');
         }
         if(user==='0'){
-            res.send('<script type="text/javascript">alert("login failed check your id or password"); location.href="/"</script>');
+            res.send('<script type="text/javascript">alert("login failed check your id or password");</script>');
         }else{
        res.json("name: "+ user.user_name);
     }
     });
+}
 });
 
 app.get('/signup', function(req, res){
@@ -50,7 +55,7 @@ app.post('/signup_process', function(req, res){
     var s_mobile = req.body.mobile;
     var s_birth = req.body.birth;
     if(s_id === '' || s_pw === '' || s_name ===''){
-        res.send('<script type="text/javascript">alert("please, check the blank"); location.href="./signup";</script>');
+        res.send('<script type="text/javascript">alert("please, check the blank"); history.go(-1);</script>');
     }else{
         singncontroller.signup(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, function(err, result){
             if(err){
@@ -58,12 +63,11 @@ app.post('/signup_process', function(req, res){
             }
             console.log(result);
             
-            if(result==='1'){
+            if(result==='double'){
                 res.send('<script type="text/javascript">alert("check the Id, overlapped"); location.href="/signup";</script>');
             }
             else{
             res.redirect('/');
-            //res.render('<script> alert("Hi '+s_name+'"! you succeeded in joining!");</script>');
         }
         });
     }
