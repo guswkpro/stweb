@@ -11,13 +11,41 @@
                 if(special_pattern.test(str) == true) {
                     return true; 
                     } 
-                else if(str.length<5){
+                if(str.length<5){
                     return true;
                 }
                 else{
                     return 0;
                 }
             }
+            function checkPassword(password){
+                    var check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,16}$/;
+    
+                    if (!check.test(password))     {
+                            return false;
+                        }
+                            
+                    if (password.length < 6 || password.length > 16) {
+                        return false;
+                    }
+                    
+                    var checkNumber = password.search(/[0-9]/g);
+                    var checkEnglish = password.search(/[a-z]/ig);
+                    if(checkNumber <0 || checkEnglish <0){
+                        alert("숫자와 영문자를 혼용하여야 합니다.");
+                        return false;
+                    }
+                    if(/(\w)\1\1\1/.test(password)){
+                        alert('444같은 문자를 4번 이상 사용하실 수 없습니다.');
+                        return false;
+                    }
+                   if(!document.userinfo.password.value){
+                       alert('비밀번호를 입력하세요.');
+                       return false;
+                   }
+                    return true;
+            }
+
 
 
            function checkValue(e){
@@ -35,8 +63,7 @@
                     inputForm.id.focus();
                     return false;
                 }
-                if((!document.userinfo.password.value)||(!checkPasswordPattern(document.userinfo.password.value))){
-                    alert("비밀번호를 입력하세요.");
+                if(!checkPassword(document.userinfo.password.value)){
                     inputForm.password.focus();
                     return false;
                 }
