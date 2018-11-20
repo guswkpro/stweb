@@ -23,34 +23,33 @@
            function checkValue(e){
                 
                 e.stopPropagation();
-                
 
-                if(!document.userinfo.id.value){
+                if(!e.document.userinfo.id.value){
                     alert("아이디를 입력하세요.");
                     inputForm.id.focus();
                     return false;
                 }
-                if(checkspecial((document.userinfo.id.value))){
+                if(checkspecial((e.document.userinfo.id.value))){
                     alert("아이디를 확인하세요. (5글자 이상,특수문자 금지)");
                     inputForm.id.focus();
                     return false;
                 }
-                if((!document.userinfo.password.value)||(!checkPasswordPattern(document.userinfo.password.value))){
+                if((!e.document.userinfo.password.value)||(!checkPasswordPattern(e.document.userinfo.password.value))){
                     alert("비밀번호를 입력하세요.");
                     inputForm.password.focus();
                     return false;
                 }
-                if((!document.userinfo.passwordcheck.value)||(document.userinfo.password.value!=document.userinfo.passwordcheck.value)){
+                if((!e.document.userinfo.passwordcheck.value)||(e.document.userinfo.password.value!=e.document.userinfo.passwordcheck.value)){
                     alert("비밀번호를 재확인 다시 입력하세요.");
                     inputForm.passwordcheck.focus();
                     return false;
                 }
-                if(!document.userinfo.nickname.value){
+                if(!e.document.userinfo.nickname.value){
                     alert("닉네임를 입력하세요.");
                     inputForm.nickname.focus();
                     return false;
                 }
-                if(!document.userinfo.email1.value){
+                if(!e.document.userinfo.email1.value){
                     alert("이메일를 입력하세요.");
                     inputForm.email.focus();
                     return false;
@@ -82,7 +81,7 @@
         <div id="wrap">
             <b>회원가입</b>
             <br><br>
-            <form name="userinfo" action="" method="post" onsubmit="checkValue(e)">
+            <form name="userinfo" action="" method="post" onsubmit="return checkValue(event)">
             <table>
                 <tr>
                     <td id="id">아이디</td>
