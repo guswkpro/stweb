@@ -3,65 +3,93 @@
     <head>
         <meta charset="utf-8">
         <title> 회원 가입 화면</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <script src="../controller/logincontroller.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script>  -->
+        <!-- <script src="../controller/logincontroller.js"></script>  -->
         <script type="text/javascript">
-            function goLoginForm(){
-                location.href="http://13.58.230.106:3000/"    
-            }
             function checkspecial(str){
                 var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; 
                 if(special_pattern.test(str) == true) {
                     return true; 
                     } 
-                else if(str.length<5){
+                if(str.length<5){
                     return true;
                 }
                 else{
                     return 0;
                 }
             }
+            
+            function checkPassword(password){
+                    var check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,16}$/;
+    
+                    if (!check.test(password))     {
+                            return false;
+                        }
+                            
+                    if (password.length < 6 || password.length > 16) {
+                        return false;
+                    }
+                    
+                    var checkNumber = password.search(/[0-9]/g);
+                    var checkEnglish = password.search(/[a-z]/ig);
+                    if(checkNumber <0 || checkEnglish <0){
+                        alert("숫자와 영문자를 혼용하여야 합니다.");
+                        return false;
+                    }
+                    if(/(\w)\1\1\1/.test(password)){
+                        alert('444같은 문자를 4번 이상 사용하실 수 없습니다.');
+                        return false;
+                    }
+                   if(!document.userinfo.password.value){
+                       alert('비밀번호를 입력하세요.');
+                       return false;
+                   }
+                    return true;
+            }
+    
 
 
-           function checkValue(){
+           function checkValue(e){
                 
+
                 if(!document.userinfo.id.value){
                     alert("아이디를 입력하세요.");
                     inputForm.id.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 if(checkspecial((document.userinfo.id.value))){
                     alert("아이디를 확인하세요. (5글자 이상,특수문자 금지)");
                     inputForm.id.focus();
-                    return false;
+                    e.preventDefault();
                 }
-                if((!document.userinfo.password.value)||(!checkPasswordPattern(document.userinfo.password.value))){
-                    alert("비밀번호를 입력하세요.");
+                if(!checkPassword(document.userinfo.password.value)){
                     inputForm.password.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 if((!document.userinfo.passwordcheck.value)||(document.userinfo.password.value!=document.userinfo.passwordcheck.value)){
                     alert("비밀번호를 재확인 다시 입력하세요.");
                     inputForm.passwordcheck.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 if(!document.userinfo.nickname.value){
                     alert("닉네임를 입력하세요.");
                     inputForm.nickname.focus();
-                    return false;
+                    e.preventDefault();
                 }
-                if(!document.userinfo.email1.value){
+                if(!document.userinfo.email.value){
                     alert("이메일를 입력하세요.");
                     inputForm.email.focus();
-                    return false;
+                    e.preventDefault();
                 }
-
-                else{
-                alert("회원가입이 되었습니다.");
                 
+                else{
+                    alert("회원가입이 되었습니다.");
+                    return true;
                 }
+                
 
             }
+            /*
             function idcheck(){
                 controller.check(document.getElementById.id.value,function(result){
                     if(res.value==1){
@@ -71,13 +99,18 @@
                     }
                 })
             }
+            */
+            function goLoginForm(){screenTop
+                location.href="http://13.58.230.106:3000/"    
+            }
+
         </script>
     </head>
     <body>
         <div id="wrap">
-            <b><font size="6" >회원가입</font></b>
+            <b>회원가입</b>
             <br><br>
-            <form name="userinfo" action="" method="post" onsubmit="return checkValue()">
+            <form name="userinfo" action="" method="post" onsubmit="checkValue(event)">
             <table>
                 <tr>
                     <td id="id">아이디</td>
@@ -93,7 +126,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td id="title">비밀번호 확인</td>
+                    <td id="passwordcheck">비밀번호 확인</td>
                     <td>
                         <input type="password" name="passwordcheck" maxlength="50">
                     </td>

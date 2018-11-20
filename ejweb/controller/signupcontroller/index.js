@@ -1,7 +1,7 @@
 var dao = require('../../dao/index.js');
 var async = require('async')
 
-exports.login = function(id, pw, callback){
+/*exports.login = function(id, pw, callback){
 	async.waterfall([ function(nextCallback) {
 			dao.login(n_id, n_pw, n_mail, n_nickname, n_tel, nextCallback);
 		}
@@ -15,3 +15,4 @@ exports.login = function(id, pw, callback){
 			callback("1");
 		}
 	});
+	*/
