@@ -23,39 +23,41 @@
            function checkValue(e){
                 
 
-                if(!e.document.userinfo.id.value){
+                if(!document.userinfo.id.value){
                     alert("아이디를 입력하세요.");
                     inputForm.id.focus();
                     return false;
                 }
-                if(checkspecial((e.document.userinfo.id.value))){
+                if(checkspecial((document.userinfo.id.value))){
                     alert("아이디를 확인하세요. (5글자 이상,특수문자 금지)");
                     inputForm.id.focus();
                     return false;
                 }
-                if((!e.document.userinfo.password.value)||(!checkPasswordPattern(e.document.userinfo.password.value))){
+                if((!document.userinfo.password.value)||(!checkPasswordPattern(document.userinfo.password.value))){
                     alert("비밀번호를 입력하세요.");
                     inputForm.password.focus();
                     return false;
                 }
-                if((!e.document.userinfo.passwordcheck.value)||(e.document.userinfo.password.value!=e.document.userinfo.passwordcheck.value)){
+                if((!document.userinfo.passwordcheck.value)||(document.userinfo.password.value!=document.userinfo.passwordcheck.value)){
                     alert("비밀번호를 재확인 다시 입력하세요.");
                     inputForm.passwordcheck.focus();
                     return false;
                 }
-                if(!e.document.userinfo.nickname.value){
+                if(!document.userinfo.nickname.value){
                     alert("닉네임를 입력하세요.");
                     inputForm.nickname.focus();
                     return false;
                 }
-                if(!e.document.userinfo.email1.value){
+                if(!document.userinfo.email.value){
                     alert("이메일를 입력하세요.");
                     inputForm.email.focus();
                     return false;
                 }
-        
+                
+                else{
                     alert("회원가입이 되었습니다.");
                     return true;
+                }
                 
 
             }
@@ -96,7 +98,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td id="title">비밀번호 확인</td>
+                    <td id="passwordcheck">비밀번호 확인</td>
                     <td>
                         <input type="password" name="passwordcheck" maxlength="50">
                     </td>
@@ -110,7 +112,7 @@
                 <tr>
                     
                     <td id="email">이메일</td>
-                    <td> <input type="text" name="e-mail" >                              
+                    <td> <input type="text" name="email" >                              
                 </tr>
             </table>
             <br>
