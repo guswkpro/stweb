@@ -28,7 +28,7 @@ app.post('/login_process', function(req, res){
         res.send('<script type="text/javascript">alert("check the blank"); history.go(-1);</script>');
     }
     else{       
-        logincontroller.login(l_id, l_pw, function(err, user){
+        logincontroller.login(l_id, l_pw, function(err, user, res){
         if(err){
             console.error('err');
         }
