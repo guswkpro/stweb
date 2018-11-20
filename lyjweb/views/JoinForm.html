@@ -58,6 +58,7 @@
 
                 else{
                 alert("회원가입이 되었습니다.");
+                return true;
                 
                 }
 
@@ -77,7 +78,7 @@
         <div id="wrap">
             <b><font size="6" >회원가입</font></b>
             <br><br>
-            <form name="userinfo" action="" method="post" onsubmit="return checkValue()">
+            <form name="userinfo" action="" method="post" onsubmit="checkValue()">
             <table>
                 <tr>
                     <td id="id">아이디</td>
