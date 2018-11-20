@@ -50,36 +50,36 @@
 
 
            function checkValue(e){
-                //e.preventDefault();
+                
 
                 if(!document.userinfo.id.value){
                     alert("아이디를 입력하세요.");
                     inputForm.id.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 if(checkspecial((document.userinfo.id.value))){
                     alert("아이디를 확인하세요. (5글자 이상,특수문자 금지)");
                     inputForm.id.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 if(!checkPassword(document.userinfo.password.value)){
                     inputForm.password.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 if((!document.userinfo.passwordcheck.value)||(document.userinfo.password.value!=document.userinfo.passwordcheck.value)){
                     alert("비밀번호를 재확인 다시 입력하세요.");
                     inputForm.passwordcheck.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 if(!document.userinfo.nickname.value){
                     alert("닉네임를 입력하세요.");
                     inputForm.nickname.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 if(!document.userinfo.email.value){
                     alert("이메일를 입력하세요.");
                     inputForm.email.focus();
-                    return false;
+                    e.preventDefault();
                 }
                 
                 else{
@@ -110,7 +110,7 @@
         <div id="wrap">
             <b>회원가입</b>
             <br><br>
-            <form name="userinfo" action="" method="post" onsubmit=checkValue(event)>
+            <form name="userinfo" action="" method="post" onsubmit="return checkValue(event)">
             <table>
                 <tr>
                     <td id="id">아이디</td>
