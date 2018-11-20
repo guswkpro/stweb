@@ -22,7 +22,8 @@
 
            function checkValue(e){
                 
-                e.preventDefault();
+                e.stopPropagation();
+                
 
                 if(!document.userinfo.id.value){
                     alert("아이디를 입력하세요.");
