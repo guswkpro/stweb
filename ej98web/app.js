@@ -39,11 +39,15 @@ app.post('/logincheck', function(req, res){
 app.post('/signcheck', function(req,res){
 
 	controller.signup(uid, upw, uemail, unickname, function(result){
+               if(result.length == 1)	{
+
 		res.json({
 			"RESULT": result
 		});
-               if(result.length == 1)	{
 		res.redirect('/');
+		}
+		else{
+			console.log(result);
 		}
 	});
 
