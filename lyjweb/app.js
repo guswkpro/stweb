@@ -38,12 +38,11 @@ app.post('/',function(req, res){
     
     controller.login(req_mem_id,req_mem_pw,function(result){
         //res.redirect('/main');
-        res.render('/main');
-        /*
+        
         res.json({
             result
         })
-        */
+        
         
     });
 });
