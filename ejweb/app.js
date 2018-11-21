@@ -37,7 +37,7 @@ app.use(session({
 }))
 //resave 세션아이디를 접속할때마다 발급하지 않는다.
 
-app.get('/', function(req, res){
+app.get('/welcome', function(req, res){
 	if(req.session.displayName){ //값이 있으면 로그인 되어있는 상태
 		res.rend('welcome.html');
 	}
@@ -51,7 +51,7 @@ app.get('/login', function(req, res){
 })
 
 app.get('/logout', function(req, res){
-	delete req.session.req_mem_id (function(err){
+	delete req.session.req_mem_id (function(err){ //세션을 제거함으로써 로그아웃
 		res.redirect('/');
 	});
 });
