@@ -57,15 +57,22 @@
                     //document.getElementById(id).focus();
                     return false;
                 }
+                /*
                 if(checkspecial((document.userinfo.id.value))){
                     alert("아이디를 확인하세요. (5글자 이상,특수문자 금지)");
                     //document.getElementById(id).focus();
                     return false;
                 }
+                
                 if(!checkPassword(document.userinfo.password.value)){
                     //document.getElementById(password).focus();
                     return false;
                 }
+                */
+                if(!document.userinfo.password.value){
+                       alert('비밀번호를 입력하세요.');
+                       return false;
+                   }
                 if((!document.userinfo.passwordcheck.value)||(document.userinfo.password.value!=document.userinfo.passwordcheck.value)){
                     alert("비밀번호를 재확인 다시 입력하세요.");
                     //document.getElementById(password).focus();
