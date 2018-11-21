@@ -10,10 +10,15 @@ var db = mysql.createConnection({
   exports.login=function(id,pw,callback){
       var recent_date =new Date().toISOString().slice(0, 19).replace('T', ' ');
       db.query('SELECT * FROM calivan.users_table where user_id=? AND user_password =?',[id,pw],function(error,result,fields){
-          console.log(result);
-          callback(error,result);
+        console.log(result);
+        db.query('UPDATE users_table SET user_recent_date =? WHETE user_id= ?',[recent_date,id],function(error,result,fields){
+            console.log(result);
+            //callback(error,result);
+        });
+        callback(error,result);
       });
       /*
+      최근시간 수정
       db.query('UPDATE FROM users_table SET user_recent_date = ? WHETE user_id= ?',[recent_date,id],function(error,result,fields){
           console.log(result);
           callback(error,result);
@@ -24,6 +29,7 @@ var db = mysql.createConnection({
 
 //실험중
 /*
+아이디 중복확인
   exports.check=function(id,callback){
       db.query('SELECT *FROM users_table where user_id =?',[id],function(error,reuslt,fields){
             callback(error,result);

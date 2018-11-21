@@ -4,14 +4,18 @@
         <meta charset="utf-8">
         <title> 회원 가입 화면</title>
         <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script>  -->
-        <!-- <script src="../controller/logincontroller.js"></script>  -->
+        <script src="../controller/logincontroller.js"></script>
         <script type="text/javascript">
+            var controller = require('./controller/logincontroller');
             function checkspecial(str){
                 var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; 
                 if(special_pattern.test(str)) {
                     return true; 
                     } 
                 if(str.length<5){
+                    return true;
+                }
+                if(!document.userinfo.id.value){
                     return true;
                 }
                 else{
@@ -21,46 +25,30 @@
             
             function checkPassword(password){
                     var check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,16}$/;
-    
                     if (!check.test(password))     {
-                            return false;
-                    }       
-                    if (password.length < 6 || password.length > 16) {
-                        return false;
+                        alert('비밀번호를 확인하세요.(영문+숫자+특수문자,6~16자리)');
+                        return true;
                     }
-                    var checkNumber = password.search(/[0-9]/g);
-                    var checkEnglish = password.search(/[a-z]/ig);
-                    if(checkNumber <0 || checkEnglish <0){
-                        alert("숫자와 영문자를 혼용하여야 합니다.");
-                        return false;
-                    }
-                    if(/(\w)\1\1\1/.test(password)){
-                        alert('444같은 문자를 4번 이상 사용하실 수 없습니다.');
-                        return false;
-                    }
-                   if(!document.userinfo.password.value){
-                       alert('비밀번호를 입력하세요.');
-                       return false;
-                   }
-                    return true;
+                    return false;
             }
     
 
 
            function checkValue(e){
                // e.preventDefault();
-
+                /*
                 if(!document.userinfo.id.value){
                     alert("아이디를 입력하세요.");
                     //document.getElementById(id).focus();
                     return false;
                 }
+                */
                 if(checkspecial(document.userinfo.id.value)){
                     alert("아이디를 확인하세요. (5글자 이상,특수문자 금지,영문만 사용)");
                     //document.getElementById(id).focus();
                     return false;
                 }                
-                if(!(checkPassword(document.userinfo.password.value))){
+                if(checkPassword(document.userinfo.password.value)){
                     //document.getElementById(password).focus();
                     return false;
                 }
@@ -89,13 +77,14 @@
             }
             /*
             function idcheck(){
-                controller.check(document.getElementById.id.value,function(result){
+                controller.check(document.getElementById.id.value,function(req,res){
                     if(res.value==1){
                         ("사용중인 아이디입니다.");
                     inputForm.id.focus();
                     return false;
                     }
                 })
+                
             }
             */
             function goLoginForm(){screenTop
