@@ -36,8 +36,8 @@ app.post('/logincheck', function(req, res){
 	});
 });
 
-app.post('/signcheck', function(req,res){
-
+app.post('/signcheck',controller.signup); 
+/*
 	controller.signup(uid, upw, uemail, unickname, function(result){
                if(result.length == 1)	{
 
@@ -52,3 +52,4 @@ app.post('/signcheck', function(req,res){
 	});
 
 });
+*/

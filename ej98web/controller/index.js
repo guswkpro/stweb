@@ -40,10 +40,11 @@ exports.signup = function(req, res){
         ], function(error){
                 if(error){
                         console.log(error);
-                        nextcallback("0");
+                      //  nextcallback("0");
                 }
                 else{
-                        nextcallback("1");
+                      nextcallback("1");
+		      redirect('/');
                 }
         });
 };
