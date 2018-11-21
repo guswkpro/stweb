@@ -11,9 +11,9 @@ var db = mysql.createConnection({
         console.log(result);
         db.query('UPDATE users_table SET user_recent_date =NOW() WHETE user_id= ?',[id],function(error,result,fields){
             console.log(result);
-            //callback(error,result);
+            callback(error,result);
         });
-        callback(error,result);
+        //callback(error,result);
       });
       /*
       최근시간 수정
@@ -21,9 +21,9 @@ var db = mysql.createConnection({
           console.log(result);
           callback(error,result);
       });
-      */
+      
   };
-
+*/
 
 //실험중
 /*
