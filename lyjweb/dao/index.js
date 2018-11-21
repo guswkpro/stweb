@@ -7,10 +7,9 @@ var db = mysql.createConnection({
   });
 
   exports.login=function(id,pw,callback){
-      var recent_date =new Date().toISOString().slice(0, 19).replace('T', ' ');
       db.query('SELECT * FROM calivan.users_table where user_id=? AND user_password =?',[id,pw],function(error,result,fields){
         console.log(result);
-        db.query('UPDATE users_table SET user_recent_date =? WHETE user_id= ?',[recent_date,id],function(error,result,fields){
+        db.query('UPDATE users_table SET user_recent_date =NOW() WHETE user_id= ?',[id],function(error,result,fields){
             console.log(result);
             //callback(error,result);
         });
