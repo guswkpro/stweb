@@ -51,7 +51,7 @@ app.get('/login', function(req, res){
 })
 
 app.get('/logout', function(req, res){
-	req.session.destory(function(err){
+	delete req.session.req_mem_id (function(err){
 		res.redirect('/');
 	});
 });
