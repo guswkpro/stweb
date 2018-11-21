@@ -15,6 +15,7 @@ var db = mysql.createConnection({
         });
         //callback(error,result);
       });
+    }
       /*
       최근시간 수정
       db.query('UPDATE FROM users_table SET user_recent_date = ? WHETE user_id= ?',[recent_date,id],function(error,result,fields){
