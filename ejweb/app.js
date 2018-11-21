@@ -39,17 +39,22 @@ app.use(session({
 
 app.get('/', function(req, res){
 	if(req.session.displayName){ //값이 있으면 로그인 되어있는 상태
-		res.rend('logout.html');
+		res.rend('welcome.html');
 	}
 	else{//값이 없으면 로그인 실패 또는 아직 로그인을 안한 상태
-		res.redirect('/login');
+		res.redirect('/login'); // /login으로 이동
 	}
-})
+});
 
 app.get('/login', function(req, res){
 	res.render('login.html')
 })
 
+app.get('/logout', function(req, res){
+	req.session.destory(function(err){
+		res.redirect('/');
+	});
+});
 app.post('/loginprocess', function(req, res){
 	var req_mem_id = req.body.id; //post방식으로 보낸 값을 가져옴
 	var req_mem_pw = req.body.pw;

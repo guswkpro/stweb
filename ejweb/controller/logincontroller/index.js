@@ -29,6 +29,7 @@ exports.login = function(id, pw, callback){
         else{ //둘중 하나가 틀리면
             res.send('사용자 정보가 일치하지 않습니다. <a href="/login">login</a>')
         } // 나중에 팝업창으로 일치하지 않습니다라고 하고싶다..?
+            //이코드는 당연히 안먹힐것같다ㅠㅠ
 
 	});
 */
