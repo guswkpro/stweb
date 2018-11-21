@@ -9,13 +9,13 @@
             function checkspecial(str){
                 var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; 
                 if(special_pattern.test(str)) {
-                    return true; 
+                    return false; 
                     } 
                 if(str.length<5){
-                    return true;
+                    return false;
                 }
                 else{
-                    return false;
+                    return true;
                 }
             }
             
@@ -56,7 +56,7 @@
                     return false;
                 }
                 if(!(checkspecial(document.userinfo.id.value))){
-                    alert("아이디를 확인하세요. (5글자 이상,특수문자 금지)");
+                    alert("아이디를 확인하세요. (5글자 이상,특수문자 금지,영문만 사용)");
                     //document.getElementById(id).focus();
                     return false;
                 }                
