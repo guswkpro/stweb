@@ -37,8 +37,10 @@ app.post('/',function(req, res){
     var req_mem_pw = req.body.password;
     
     controller.login(req_mem_id,req_mem_pw,function(result){
-        controller.
-        res.redirect('/main');
+        //res.redirect('/main');
+        res.json({
+            result
+        })
         
     });
 });
