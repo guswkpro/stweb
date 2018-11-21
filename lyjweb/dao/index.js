@@ -41,7 +41,8 @@ var db = mysql.createConnection({
   exports.join = function(id,pw,nick,email,callback){
      // var data= new Date().toLocaleDateString('se').replace(/\D/g, '')
       //var sign_date=new Date().toISOString().slice(0, 10).replace('T', ' ');
-      db.query('INSERT INTO calivan.users_table(user_id,user_password,user_nickname,user_email,user_sign_date,user_recent_date,user_image_path,user_withdraw,user_withdraw_date) VALUES(?,?,?,?,?,?,?,?,?)',[id,pw,nick,email,NOW(),NOW(),null,0,null],function(error,result,fields){
+      now = db.query('SELECT NOW()');
+      db.query('INSERT INTO calivan.users_table(user_id,user_password,user_nickname,user_email,user_sign_date,user_recent_date,user_image_path,user_withdraw,user_withdraw_date) VALUES(?,?,?,?,?,?,?,?,?)',[id,pw,nick,email,now,now,null,0,null],function(error,result,fields){
           console.log(result);
            callback(error,result);
       });
