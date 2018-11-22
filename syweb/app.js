@@ -24,10 +24,7 @@ app.get('/login', function(req, res){
 app.post('/login_process', function(req, res){
     var l_id=req.body.id;
     var l_pw=req.body.pw;
-    if(l_id === '' || l_pw === ''){
-        res.send('<script type="text/javascript">alert("check the blank"); history.go(-1);</script>');
-    }
-    else{       
+  
         logincontroller.login(l_id, l_pw, function(err, user, res){
         if(err){
             console.error('err');
@@ -38,7 +35,6 @@ app.post('/login_process', function(req, res){
        res.json('name: '+ user.user_name);
     }
     });
-}
 });
 
 app.get('/signup', function(req, res){
@@ -54,9 +50,7 @@ app.post('/signup_process', function(req, res){
     var s_address = req.body.email;
     var s_mobile = req.body.mobile;
     var s_birth = req.body.birth;
-    if(s_id === '' || s_pw === '' || s_name ===''){
-        res.send('<script type="text/javascript">alert("please, check the blank"); history.go(-1);</script>');
-    }else{
+
         singncontroller.signup(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth, function(err, result){
             if(err){
                 console.error('err', err);
@@ -70,7 +64,6 @@ app.post('/signup_process', function(req, res){
             res.redirect('/');
         }
         });
-    }
 
 
 });
