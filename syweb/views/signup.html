@@ -4,19 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>signup</title>
-
-    <script type="text/javascript">
-        function blankCheck() {
-            var s_id = document.getElementById('id');
-            var s_pw = document.getElementById('pw');
-            var s_name = document.getElementById('name');
-
-            if (s_id == "" || s_pw == "" || s_name == "") {
-                alert('Please, check the blank');
-                return false;
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -41,5 +28,16 @@
        <button type="submit">signup</button>
     </form>
 </body>
+<script type="text/javascript">
+    function blankCheck() {
+        var s_id = document.getElementById('id');
+        var s_pw = document.getElementById('pw');
+        var s_name = document.getElementById('name');
 
+        if (s_id == "" || s_pw == "" || s_name == "") {
+            alert('Please, check the blank');
+            return false;
+        }
+    }
+</script>
 </html>
