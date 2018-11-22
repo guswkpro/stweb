@@ -38,7 +38,7 @@ exports.signup = function(s_id, s_pw, s_name, s_email, s_address, s_mobile, s_bi
             db.query(`INSERT INTO users_table (user_id, user_pw, user_name, user_email, user_address, user_mobile, user_birth, user_join_date, user_profile_path, user_point, user_access_date, user_withdraw) VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), 0, 0, NOW(), 0)`,[s_id, s_pw, s_name, s_email, s_address, s_mobile, s_birth],
             function(err2, result){
                 if(err2){
-                    console.error('err', err);
+                    console.error('err', err2);
                 }
                 callback(err2, result);
             });
