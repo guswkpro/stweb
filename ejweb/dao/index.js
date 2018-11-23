@@ -11,13 +11,22 @@ var connection = mysql.createConnection({
                         database: 'JungeDBInstance'
                         });
 
+		
+connection.connect(function(err) {
+			if(err) {
+					console.error('connection failed: ' + err.stack); return;
+					}
+							console.log('success!');
+					});
+					
+					connection.end();						
 
-exports.login = function(id, pw, callback){
+/*exports.login = function(id, pw, callback){
 	connection.query('SELECT * FROM JungeDBInstance.Users_Table where user_id = ? AND user_pw = ?', [id, pw],function(error, result, fields){
 		console.log(result);
 		callback(error, result);
 	});
 
 };
-
+*/
 //exports.join = function('INSERT INTO JungeDBInstacne.Users_Table(user_id, user_pw, user_mail, user_nickname, user_tel)
