@@ -20,7 +20,7 @@ var db = mysql.createConnection({
 //실험중
 
   exports.idcheck=function(id,callback){
-      db.query('SELECT * FROM users_table where user_id =?',[id],callback)
+      db.query('SELECT * FROM calivan.users_table where user_id =?',[id],callback)
   }
 
   
