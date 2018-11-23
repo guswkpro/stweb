@@ -95,12 +95,12 @@
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.XMLHttpReq.response
                 xmlHttp.onreadystatechange=function(){
-                    if(this.readyState == 4 && this.status == 200){
-                        document.getElementById("idcheck").innerHTML = this.responseText;
+                    if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+                        document.getElementById("idcheck").innerHTML = xmlHttp.responseText;
                         //callback(xmlHttp.response);
                     }
                 }
-                xmlHttp.open( "GET", '/idcheck?id='+id, false ); // false for synchronous request
+                xmlHttp.open( "GET", '/idcheck?id='+id, true ); // false for synchronous request
                 xmlHttp.send( null );
                 
 
