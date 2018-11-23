@@ -65,7 +65,7 @@ app.post('/JoinForm',function(req, res){
         })
         */
         if(result == '0'){
-            res.send(400, '<script>alert("회원가입 실패")</script>');
+            res.send('<script>alert("회원가입 실패");location.href="/JoinForm"</script>');
         }
         else if(result == '1') {
             res.send('<script>alert("회원가입 성공");location.href="/";</script>');
