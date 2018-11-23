@@ -9,6 +9,7 @@
             var overlap_id = 'false';
                 function checkspecial(str){
                 var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; 
+                //아이디 영문숫자만 가능하게 수정해야됨!
                 if(special_pattern.test(str)) {
                     return true; 
                     } 
@@ -35,14 +36,6 @@
 
 
            function checkValue(e){
-               // e.preventDefault();
-                /*
-                if(!document.userinfo.id.value){
-                    alert("아이디를 입력하세요.");
-                    //document.getElementById(id).focus();
-                    return false;
-                }
-                */
                 if(checkspecial(document.userinfo.id.value)){
                     alert("아이디를 확인하세요. (5글자 이상,특수문자 금지,영문만 사용)");
                     //document.getElementById(id).focus();
@@ -61,33 +54,20 @@
                     alert("닉네임를 입력하세요.");
                    // inputForm.nickname.focus();
                     return false;
+                    //최소 글자 수 수정해야함!
                 }
                 if(!document.userinfo.email.value){
                     alert("이메일를 입력하세요.");
                   //  inputForm.email.focus();
                     return false;
+                    //이메일 형식 수정!!
                 }
                 if(overlap_id=='false'){
                     alert("아이디중복체크를 해주세요.")
                     return false;
                 }
+            }
             
-                
-                
-
-            }
-            /*
-            function idcheck(){
-                controller.check(document.getElementById.id.value,function(req,res){
-                    if(res.value==1){
-                        ("사용중인 아이디입니다.");
-                    inputForm.id.focus();
-                    return false;
-                    }
-                })
-                
-            }
-            */
             function goLoginForm(){
                 location.href="http://13.58.230.106:3000/"    
             }

@@ -22,16 +22,7 @@ exports.login = function(id,pw,callback){
     });
     //dao로 로그인 값 확인..?
 }
-/*
-exports.join=function(id,pw,nick,email,callback){
-    dao.join(id,pw,nick,email,function(error,result){
-        if(error){
-            console.log('err',error);
-        }
-        callback(res,reuslt);
-    })
-}
-*/
+
 
 exports.join = function(id,pw,nick,email,callback){
     async.waterfall([
