@@ -42,8 +42,10 @@ exports.join = function(id,pw,nick,email,callback){
         if(error){
             console.log(error);
             callback("0");
+            //가입실패
         }else{
             callback("1");
+            //가입성공
         }
         
     });
