@@ -68,7 +68,8 @@ app.post('/JoinForm',function(req, res){
             res.send('<script>alert("회원가입 실패")</script>');
         }
         else if(result == '1') {
-            res.redirect("/");
+            res.send('<script>alert("회원가입 성공");location.href="/";</script>');
+//            res.redirect("/");
         }
     });
 }); 
