@@ -75,9 +75,11 @@ app.get('/idcheck/:id',function(req,res){
         
         if(result.length!=0){
             res.send(false);
+            //중복
         }
         else {
             res.send(true);
+            //중복안된 것
         }
         
     })
