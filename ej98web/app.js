@@ -23,9 +23,9 @@ app.get('/signup', function(req, res){
         res.render("./signup.html");
 });
 
-app.post('/logincheck', function(req, res){
+app.post('/logincheck',controller.login); 
 
-	controller.login(uid, upw, function(result){
+/*	controller.login(uid, upw, function(result){
 		if(err){
 			res.send('<script> alert("id or passwd is wrong");</script>');
 		}
@@ -34,7 +34,7 @@ app.post('/logincheck', function(req, res){
 		});
 		res.redirect('./main.html');
 	});
-});
+*/
 
 app.post('/signcheck',controller.signup); 
 /*

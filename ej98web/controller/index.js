@@ -22,6 +22,7 @@ exports.login = function(req, res) {
 		}
 		else{
 			nextcallback("1");
+			res.redirect('./main.html');
 		}
 	});
 
@@ -33,7 +34,7 @@ exports.signup = function(req, res){
 	var uemail = req.body.email;
 	var unickname = req.body.nickname;
 
-	    async.waterfall([
+	/*    async.waterfall([
                 function(nextCallback){
                         dao.signup(uid,upw,uemail, unickname, nextCallback);
                 }
@@ -43,10 +44,20 @@ exports.signup = function(req, res){
                       //  nextcallback("0");
                 }
                 else{
+		      console.log(res);
                       nextcallback("1");
-		      redirect('/');
+		      res.redirect('/');
                 }
         });
+		*/
+	var connection = dao.signup(uid, upw, uemail, unickname, function(error, result){
+		if(error){
+			console.log(error);
+		}
+			console.log(connection);
+	});
+
+	res.redirect('/');
 };
 
 
