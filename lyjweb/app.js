@@ -70,8 +70,8 @@ app.post('/JoinForm',function(req, res){
 
 app.get('/idcheck/:id',function(req,res){
     var id = req.params.id;
+    console.log(req.params);
     controller.idcheck(id,function(error,result){
-        console.log(id);
         
         if(result.length!=0){
             res.send("아이디중복되었습니다.");
