@@ -74,16 +74,5 @@ exports.getUserProfile = function(req,res){
 
 //실험 중
 exports.idcheck= function(id,callback){
-    async.waterfall([
-        function(nextcallback){
-            dao.idcheck(id,nextcallback);
-        }
-    ], function(error,result){
-        if(error){
-            callback("0");
-        }
-        else{
-            callback("1");
-        }
-    });
+    dao.idcheck(id,callback);
 };
