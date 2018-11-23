@@ -93,8 +93,17 @@
             function idcheck(){
                 var id = document.getElementById("id").value;
                 var xmlHttp = new XMLHttpRequest();
+                xmlHttp.XMLHttpReq.response
+                xmlHttp.onreadystatechange=function(){
+                    if(this.readyState == 4 && this.status == 200){
+                        document.getElementById("idcheck").innerHTML = this.responseText;
+                        //callback(xmlHttp.response);
+                    }
+                }
                 xmlHttp.open( "GET", '/idcheck?id='+id, false ); // false for synchronous request
-                xmlHttp.send( null );   
+                xmlHttp.send( null );
+                
+
             }
 
         </script>
@@ -110,6 +119,7 @@
                         <td>
                             <input type="text" name="id" maxlength="15">
                             <input type="button" value="중복확인" onclick="idcheck()">
+                            <span id = "idcheck"></span>
                         </td>
                     </tr>
                     <tr>
