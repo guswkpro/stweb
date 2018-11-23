@@ -71,7 +71,7 @@ app.post('/JoinForm',function(req, res){
 app.get('/idcheck',function(req,res){
     var id = req.query.id;
     controller.idcheck(id,function(error,result){
-        console.log(result);
+        console.log(id);
         if(result.length!=0){
             res.send("아이디중복되었습니다.");
         }
