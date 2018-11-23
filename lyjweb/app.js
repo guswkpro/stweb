@@ -63,6 +63,6 @@ app.post('/JoinForm',function(req, res){
             result
         })
         */
-        res.render("/");
+        res.redirect("/");
     });
 }); 
