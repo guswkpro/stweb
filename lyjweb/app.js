@@ -68,8 +68,8 @@ app.post('/JoinForm',function(req, res){
 }); 
 
 
-app.get('/idcheck',function(req,res){
-    var id = req.query.id;
+app.get('/idcheck/:id',function(req,res){
+    var id = req.params.id;
     controller.idcheck(id,function(error,result){
         console.log(id);
         
