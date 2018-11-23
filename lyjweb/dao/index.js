@@ -9,12 +9,15 @@ var db = mysql.createConnection({
   exports.login=function(id,pw,callback){
       db.query('SELECT * FROM calivan.users_table where user_id=? AND user_password =?',[id,pw],function(error,result,fields){
         console.log(result);
+        if(result.length!=0){
+            db.query('UPDATE users_table SET user_recent_date = NOW() WHETE user_id= ?',[id]);
+        }
         callback(error,result);
       });
     }
       /*
       최근시간 수정
-      db.query('UPDATE FROM users_table SET user_recent_date = ? WHETE user_id= ?',[recent_date,id],function(error,result,fields){
+      db.query('UPDATE users_table SET user_recent_date = NOW() WHETE user_id= ?',[id],function(error,result,fields){
           console.log(result);
           callback(error,result);
       });
