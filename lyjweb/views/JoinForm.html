@@ -6,6 +6,7 @@
         <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script>  -->
         <script src="../controller/logincontroller.js"></script>
         <script type="text/javascript">
+            var overlap_id = false;
                 function checkspecial(str){
                 var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; 
                 if(special_pattern.test(str)) {
@@ -66,11 +67,15 @@
                   //  inputForm.email.focus();
                     return false;
                 }
-                
-                else{
-                    alert("회원가입이 되었습니다.");
-                    return true;
+                if(overlap_id==false){
+                    alert("아이디중복체크를 해주세요.")
+                    return false;
                 }
+                
+                
+                alert("회원가입이 되었습니다.");
+                return true;
+                
                 
 
             }
@@ -95,8 +100,13 @@
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange=function(){
                     if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
-                        document.getElementById("idcheck").innerHTML = xmlHttp.response;
-                        //callback(xmlHttp.response);
+                        var overlap_id = xmlHttp.response;
+                        if(overlap_id==true){
+                            document.getElementById("idcheck").innerHTML= "사용할 수 있는 아이디입니다." ;
+                        }
+                        else{
+                        document.getElementById("idcheck").innerHTML = "중복된 아이디입니다.";
+                        }//callback(xmlHttp.response);
                     }
                 }
                 xmlHttp.open( "GET", '/idcheck/'+id, true ); // false for synchronous request
