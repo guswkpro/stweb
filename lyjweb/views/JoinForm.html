@@ -95,7 +95,7 @@
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange=function(){
                     if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
-                        document.getElementById("idcheck").innerHTML = xmlHttp.responseText;
+                        document.getElementById("idcheck").innerHTML = xmlHttp.response;
                         //callback(xmlHttp.response);
                     }
                 }

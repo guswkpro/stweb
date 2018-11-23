@@ -74,10 +74,10 @@ app.get('/idcheck/:id',function(req,res){
     controller.idcheck(id,function(error,result){
         
         if(result.length!=0){
-            res.send("아이디중복되었습니다.");
+            res.send(false);
         }
         else {
-            res.send("사용가능한 아이디입니다..");
+            res.send(true);
         }
         
     })
