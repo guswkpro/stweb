@@ -60,11 +60,12 @@ app.post('/JoinForm',function(req, res){
     var req_email = req.body.email;
 
     controller.join(req_id,req_pw,req_nick,req_email,function(result){
-       /* res.json({
+        res.json({
             result
         })
-        */
-        res.redirect("/");
+        
+
+        //res.redirect("/");
     });
 }); 
 
