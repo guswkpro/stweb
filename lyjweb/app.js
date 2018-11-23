@@ -71,12 +71,14 @@ app.post('/JoinForm',function(req, res){
 app.get('/idcheck',function(req,res){
     var id = req.query.id;
     controller.idcheck(id,function(error,result){
-        console.log(id);
+        console.log(result);
+        
         if(result.length!=0){
             res.send("아이디중복되었습니다.");
         }
         else {
             res.send("사용가능한 아이디입니다..");
         }
+        
     })
 })

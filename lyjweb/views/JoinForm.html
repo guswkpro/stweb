@@ -93,20 +93,15 @@
             function idcheck(){
                 var id = document.getElementById("id").value;
                 var xmlHttp = new XMLHttpRequest();
-                xmlHttp.XMLHttpReq.response
-                
-                xmlHttp.open( "GET", '/idcheck?id='+id, true ); // false for synchronous request
-                xmlHttp.send( null );
-                /*
                 xmlHttp.onreadystatechange=function(){
                     if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
                         document.getElementById("idcheck").innerHTML = xmlHttp.responseText;
                         //callback(xmlHttp.response);
                     }
                 }
-                */
-                
-
+                xmlHttp.open( "GET", '/idcheck?id='+id, true ); // false for synchronous request
+                xmlHttp.send( null );
+            
             }
 
         </script>
