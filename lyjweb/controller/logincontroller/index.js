@@ -73,11 +73,10 @@ exports.getUserProfile = function(req,res){
 
 
 //실험 중
-/*
-exports.check= function(id,callback){
+exports.idcheck= function(id,callback){
     async.waterfall([
         function(nextcallback){
-            dao.check(id,nextcallback);
+            dao.idcheck(id,nextcallback);
         }
     ], function(error,result){
         if(error){
@@ -88,4 +87,3 @@ exports.check= function(id,callback){
         }
     });
 };
-*/

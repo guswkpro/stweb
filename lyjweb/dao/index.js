@@ -15,26 +15,14 @@ var db = mysql.createConnection({
         callback(error,result);
       });
     }
-      /*
-      최근시간 수정
-      db.query('UPDATE users_table SET user_recent_date = NOW() WHETE user_id= ?',[id],function(error,result,fields){
-          console.log(result);
-          callback(error,result);
-      });
       
-  };
-*/
 
 //실험중
-/*
-아이디 중복확인
-  exports.check=function(id,callback){
-      db.query('SELECT *FROM users_table where user_id =?',[id],function(error,reuslt,fields){
-            callback(error,result);
-      })
+
+  exports.idcheck=function(id,callback){
+      db.query('SELECT * FROM users_table where user_id =?',[id],callback(error,result))
   }
 
- */
   
   exports.join = function(id,pw,nick,email,callback){
      // var data= new Date().toLocaleDateString('se').replace(/\D/g, '')

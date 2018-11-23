@@ -66,3 +66,13 @@ app.post('/JoinForm',function(req, res){
         res.redirect("/");
     });
 }); 
+
+
+app.get('/idcheck',function(req,res){
+    var id = req.query.id;
+    controller.idcheck(id,function(error,result){
+        if(result.length!=0){
+            res.send('<script>alert("아이디중복되었습니다.")</script>');
+        }
+    })
+})

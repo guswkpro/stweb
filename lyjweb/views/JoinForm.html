@@ -6,8 +6,7 @@
         <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script>  -->
         <script src="../controller/logincontroller.js"></script>
         <script type="text/javascript">
-            var controller = require('./controller/logincontroller');
-            function checkspecial(str){
+                function checkspecial(str){
                 var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; 
                 if(special_pattern.test(str)) {
                     return true; 
@@ -87,8 +86,16 @@
                 
             }
             */
-            function goLoginForm(){screenTop
+            function goLoginForm(){
                 location.href="http://13.58.230.106:3000/"    
+            }
+            
+            function idcheck(){
+                var id = document.getElementById("id").value;
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", '/idcheck?id='+id, false ); // false for synchronous request
+                xmlHttp.send( null );
+                
             }
 
         </script>
