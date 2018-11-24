@@ -17,6 +17,7 @@ exports.login = function(uid, upw, callback){
 
 exports.signup = function(uid, upw, uemail, unickname, callback){
 	client.query('INSERT into mydb.users_table (user_id,user_pw,user_mail,user_nickname,user_introduce, user_true, user_admin, user_create_time, user_acctime, user_picture_path) values(?,?,?,?,NULL,1,0,now(),now(),NULL)', [uid, upw, uemail, unickname], function(error, result){
+		console.log(result);
 		callback(error, result);
 	});
 }; 
