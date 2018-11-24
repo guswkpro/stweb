@@ -2,7 +2,7 @@ var dao =require('../../dao/index.js');
 var async = require('async');
 
 
-//로그인 위한 객체 생성..?
+//로그인 dao로 값 전송..?
 exports.login = function(id,pw,callback){
     //비동기함수를 순차적으로 실행하지만 각 작업의 결과를 다음 작업으로 넘길때
     async.waterfall([
@@ -23,7 +23,7 @@ exports.login = function(id,pw,callback){
     //dao로 로그인 값 확인..?
 }
 
-
+//회원가입 dao로 값 전송
 exports.join = function(id,pw,nick,email,callback){
     async.waterfall([
         function(nextcallback){
@@ -42,6 +42,7 @@ exports.join = function(id,pw,nick,email,callback){
     });
 }
 
+//유저정보확인 --> 분석 필요...어떤 방식인지 
 exports.getUserProfile = function(req,res){
     var req_mem_id = req.param('id');
 
@@ -65,7 +66,7 @@ exports.getUserProfile = function(req,res){
 };
 
 
-//실험 중
+//아이디 중복 체크
 exports.idcheck= function(id,callback){
     dao.idcheck(id,callback);
 };
