@@ -22,7 +22,7 @@ exports.login = function(req, res) {
 		}
 		else{
 			nextcallback("1");
-			res.redirect('./main.html');
+		//	res.redirect('./main.html');
 		}
 	});
 
