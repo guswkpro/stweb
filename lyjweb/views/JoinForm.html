@@ -7,6 +7,7 @@
         <script src="../controller/logincontroller.js"></script>
         <script type="text/javascript">
             var overlap_id = 'false';
+            var overlap_nickname='false';
                 function checkspecial(id){
                     /*
                     var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; 
@@ -67,8 +68,14 @@
                     //이메일 형식 수정!!--> 해야함..ㅠ
                 }
                 if(overlap_id=='false'){
-                    alert("아이디중복체크를 해주세요.")
+                    alert("아이디 중복체크를 해주세요.");
                     return false;
+                    //아이디 중복체크 여부
+                }
+                if(overlap_nickname=='false'){
+                    alert("닉네임 중복체크를 해주세요.");
+                    return false;
+                    //닉네임 중복체크 여부
                 }
             }
             
@@ -76,23 +83,33 @@
                 location.href="http://13.58.230.106:3000/"    
             }
             
-            function idcheck(){
+            function id_check(){
                 var id = document.getElementById("id").value;
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange=function(){
                     if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
                         overlap_id = xmlHttp.response;
                         if(overlap_id=='true'){
-                            document.getElementById("idcheck").innerHTML= "사용할 수 있는 아이디입니다." ;
+                            document.getElementById("id_check").innerHTML= "사용할 수 있는 아이디입니다." ;
                         }
                         else{
-                        document.getElementById("idcheck").innerHTML = "중복된 아이디입니다.";
+                        document.getElementById("id_check").innerHTML = "중복된 아이디입니다.";
                         }
                     }
                 }
                 xmlHttp.open( "GET", '/idcheck/'+id, true ); // false for synchronous request
                 xmlHttp.send( null );
             
+            }
+
+            function nickname_check(){
+                var nick=document.getElementById("nickname").value;
+                var xmlHttp=new XMLHttpRequest();
+                xmlHttp.onreadystatechange=function(){
+                    if(xml.readyState==4&&xml.status==200){
+                        ///작성 중
+                    }
+                }
             }
 
         </script>
@@ -107,33 +124,35 @@
                         <td>아이디</td>
                         <td>
                             <input type="text" id="id" name="id" maxlength="15">
-                            <input type="button" value="중복확인" onclick="idcheck()">
-                            <span id = "idcheck"></span>
+                            <input type="button" value="중복확인" onclick="id_check()">
+                            <span id = "id_check"></span>
                         </td>
                     </tr>
                     <tr>
-                        <td id="password">비밀번호</td>
+                        <td>비밀번호</td>
                         <td>
-                            <input type="password" name="password" maxlength="45">
+                            <input type="password" id="password" name="password" maxlength="45">
                         </td>
                     </tr>
                     <tr>
-                        <td id="passwordcheck">비밀번호 확인</td>
+                        <td>비밀번호 확인</td>
                         <td>
-                            <input type="password" name="passwordcheck" maxlength="50">
+                            <input type="password" id="passwordcheck" name="passwordcheck" maxlength="50">
                         </td>
                     </tr>
                     <tr>
-                        <td id="nickname">닉네임</td>
+                        <td>닉네임</td>
                         <td>
-                            <input type="text" name="nickname" maxlength="20">
+                            <input type="text" id="nickname" name="nickname" maxlength="20">
+                            <input type="button" value="중복확인" onclick="nickname_check()">
+                            <sapn id="nickname_check"></sapn>
                         </td>
                     </tr>
                     <tr>
                         
-                        <td id="email">이메일</td>
+                        <td>이메일</td>
                         <td> 
-                            <input type="text" name="email" > 
+                            <input type="text" id="email" name="email" > 
                         </td>                           
                     </tr>
                 </table>
