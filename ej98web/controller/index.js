@@ -18,7 +18,7 @@ exports.login = function(req, res) {
 			nextcallback("0");
 		}
 		else if(result.length == 0) {
-			nextcallback("2");
+		       	nextcallback("2");
 		}
 		else{
 			nextcallback("1");
@@ -41,7 +41,7 @@ exports.signup = function(req, res){
         ], function(error){
                 if(error){
                         console.log(error);
-                      //  nextcallback("0");
+                        nextcallback("0");
                 }
                 else{
 		      console.log(res);
