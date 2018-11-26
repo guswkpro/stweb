@@ -6,7 +6,7 @@ var bodyParser = require('body-parser'); //POST 방식 전송을 위해서 필�
 var session = require(express-session); // express의 미들웨어 사용
 var MysqlStore = require('session-mysql-store')(session);
 //npm install express-mysql-session --save //Mysql을 Express의 Session store로 사용
-
+//다시 인스턴스를 생성
 
 
 var server = app.listen(3000, function(){
